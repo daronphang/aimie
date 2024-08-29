@@ -3,6 +3,7 @@
 
 .chat-container {
   color: variables.$primary;
+  position: relative;
 
   @media (max-width: variables.$device-mobile-l) {
     padding: utilities.$spacer * utilities.$size-3;
