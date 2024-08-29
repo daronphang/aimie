@@ -141,13 +141,13 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
         el.style.height = `calc(${window.visualViewport.height}px - 6.5rem)`;
         break;
       case 'tablet':
-        el.style.height = `calc(${window.visualViewport}px - 8.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
         break;
       case 'laptop':
-        el.style.height = `calc(${window.visualViewport}px - 8.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
         break;
       case 'desktop':
-        el.style.height = `calc(${window.visualViewport}px - 11.5rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 11.5rem)`;
         break;
     }
   }

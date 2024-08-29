@@ -224,19 +224,19 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
   protected onResize(): void {
     const el = document.querySelector('.k-chat') as HTMLElement;
     const device = getViewportDevice();
-    if (!el) return;
+    if (!el || !window.visualViewport) return;
     switch (device) {
       case 'mobile':
-        el.style.height = `calc(${window.innerHeight}px - 6.5rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 6.5rem)`;
         break;
       case 'tablet':
-        el.style.height = `calc(${window.innerHeight}px - 8.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
         break;
       case 'laptop':
-        el.style.height = `calc(${window.innerHeight}px - 8.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
         break;
       case 'desktop':
-        el.style.height = `calc(${window.innerHeight}px - 11.5rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 11.5rem)`;
         break;
     }
   }
