@@ -11,6 +11,7 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@angular-eslint/template/elements-content": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {

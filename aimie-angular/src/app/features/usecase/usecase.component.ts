@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { events } from './usecases';
-import { TimelineEvent } from '@progress/kendo-angular-layout';
+import { chevronRightIcon } from '@progress/kendo-svg-icons';
 
 @Component({
   selector: 'app-usecase',
@@ -10,8 +10,9 @@ import { TimelineEvent } from '@progress/kendo-angular-layout';
   encapsulation: ViewEncapsulation.None,
 })
 export class UsecaseComponent implements AfterViewInit {
-  protected events: TimelineEvent[] = events;
+  protected events = events;
   protected slideConfig = { slidesToShow: 1, slidesToScroll: 1, dots: true, infinite: true };
+  protected chevronRightIcon = chevronRightIcon;
 
   constructor(protected route: ActivatedRoute) {}
 
@@ -39,38 +40,39 @@ export class UsecaseComponent implements AfterViewInit {
     });
   }
 
+  protected extractCategoryFromDescription(v: string, cat: string): string {
+    const temp = v.split(';');
+    if (cat === 'scenario') {
+      return temp[0].trim();
+    } else if (cat === 'technology') {
+      return temp[1].trim();
+    }
+    return temp[2].trim();
+  }
+
+  protected getZone(v: string): string {
+    if (v === 'AI/ML-based Demand Forecasting') return 'SC';
+    else if (v === 'AI-enabled Production Capacity Planning') return 'HQ';
+    else if (v === 'Process Optimisation (Set Point)') return 'SHOPFLOOR';
+    else if (v === 'Predictive & Prescriptive Maintenance') return 'SHOPFLOOR';
+    else if (v === 'GenAI Maintenance Chatbot') return 'SHOPFLOOR';
+    return 'UNKNOWN';
+  }
+
   private changeBorderOfCards(): void {
     const elements = document.querySelectorAll('.k-card');
     elements.forEach(row => {
       if (row.innerHTML.includes('AI/ML-based Demand Forecasting')) {
-        row.classList.add('zone--scl');
-      } else if (row.innerHTML.includes('AI-enabled')) {
+        row.classList.add('zone--sc');
+      } else if (row.innerHTML.includes('AI-enabled Production Capacity Planning')) {
         row.classList.add('zone--hq');
       } else if (row.innerHTML.includes('Process Optimisation (Set Point)')) {
         row.classList.add('zone--shopfloor');
-      } else if (row.innerHTML.includes('GenAI Maintenance Chatbot')) {
-        row.classList.add('zone--shopfloor');
       } else if (row.innerHTML.includes('Prescriptive Maintenance')) {
+        row.classList.add('zone--shopfloor');
+      } else if (row.innerHTML.includes('GenAI Maintenance Chatbot')) {
         row.classList.add('zone--shopfloor');
       }
     });
-  }
-
-  protected extractScenario(v: string): string {
-    const start = v.indexOf('<scenario>') + 10;
-    const end = v.indexOf('</scenario>');
-    return v.substring(start, end);
-  }
-
-  protected extractTechnology(v: string): string {
-    const start = v.indexOf('<technology>') + 12;
-    const end = v.indexOf('</technology>');
-    return v.substring(start, end);
-  }
-
-  protected extractValue(v: string): string {
-    const start = v.indexOf('<value>') + 7;
-    const end = v.indexOf('</value>');
-    return v.substring(start, end);
   }
 }

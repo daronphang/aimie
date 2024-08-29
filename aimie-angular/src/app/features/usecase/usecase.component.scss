@@ -57,7 +57,7 @@
   height: 3px;
 }
 
-.legend__zone--scl {
+.legend__zone--sc {
   @include legend__zone;
   background-color: #9b64be;
 }
@@ -72,16 +72,25 @@
   background-color: #286a9f;
 }
 
-.zone--scl {
-  border: 2px solid #9b64be !important;
+.zone__banner {
+  text-align: center;
+  color: variables.$light;
+  height: 1.5rem;
+}
+
+.zone--sc {
+  // background-color: #9b64be;
+  border: 2px solid #9b64be;
 }
 
 .zone--hq {
-  border: 2px solid #61c44e !important;
+  // background-color: #61c44e;
+  border: 2px solid #61c44e;
 }
 
 .zone--shopfloor {
-  border: 2px solid #286a9f !important;
+  // background-color: #286a9f;
+  border: 2px solid #286a9f;
 }
 
 .title {
@@ -220,6 +229,7 @@
 
 .k-card {
   // border: 2px solid #286a9f !important;
+  // border-radius: 0.15rem !important;
 
   @media (max-width: variables.$device-mobile-l) {
     width: calc(100vw - 4.5rem) !important;
@@ -235,11 +245,19 @@
   }
 }
 
+// .k-card > .k-card-inner {
+//   border-radius: 0rem;
+// }
+
+// .k-card-header {
+//   padding: unset;
+// }
+
 .k-card-callout {
   border: inherit;
 }
 
-.k-timeline-vertical .k-timeline-card .k-card .k-card-title .k-event-title {
+.k-event-title {
   font-weight: 600;
   white-space: wrap;
 
@@ -257,6 +275,24 @@
   }
 }
 
+// .k-timeline-vertical .k-timeline-card .k-card .k-card-title .k-event-title {
+//   font-weight: 600;
+//   white-space: wrap;
+
+//   @media (max-width: variables.$device-mobile-l) {
+//     font-size: variables.$font-sm;
+//   }
+//   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+//     font-size: variables.$font-reg;
+//   }
+//   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+//     font-size: variables.$font-reg;
+//   }
+//   @media (min-width: calc(variables.$device-laptop + 1px)) {
+//     font-size: variables.$font-reg;
+//   }
+// }
+
 .k-timeline .k-timeline-circle {
   background-color: variables.$light;
   border: 2px solid #707070;
@@ -273,4 +309,9 @@
 .body__content {
   white-space: pre-wrap;
   color: variables.$tertiary;
+}
+
+.card--expanded {
+  transition: 1s;
+  transform: rotate(90deg);
 }

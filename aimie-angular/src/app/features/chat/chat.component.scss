@@ -1,11 +1,6 @@
 @use 'core/styles/variables';
 @use 'core/styles/utilities';
 
-html,
-body {
-  overflow: hidden !important;
-}
-
 .chat-container {
   color: variables.$primary;
   position: relative;
