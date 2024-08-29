@@ -11,7 +11,7 @@
         resizable="none"
         [rows]="3"
         (keydown)="onKeyDown($event)"></kendo-textarea>
-      <button kendoButton fillMode="flat">
+      <button kendoButton fillMode="flat" (click)="sendMessage()">
         <kendo-svgicon [icon]="paperPlaneIcon" size="large"></kendo-svgicon>
       </button>
     </div>
