@@ -1,0 +1,5 @@
+@use 'core/styles/variables';
+
+.text--secondary {
+  font-size: variables.$font-sm;
+}

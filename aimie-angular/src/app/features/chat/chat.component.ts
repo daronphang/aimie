@@ -1,0 +1,129 @@
+import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Message, User } from '@progress/kendo-angular-conversational-ui';
+import { TextAreaComponent } from '@progress/kendo-angular-inputs';
+import { paperPlaneIcon } from '@progress/kendo-svg-icons';
+import { concatMap, from, merge, Observable, scan, Subject, Subscription } from 'rxjs';
+import { ChatService } from './chat.service';
+
+@Component({
+  selector: 'app-chat',
+  templateUrl: './chat.component.html',
+  styleUrl: './chat.component.scss',
+  encapsulation: ViewEncapsulation.None,
+})
+export class ChatComponent implements OnInit, OnDestroy {
+  @ViewChild('messageBoxInput', { static: false })
+  public messageBoxInput: TextAreaComponent;
+  public paperPlaneIcon = paperPlaneIcon;
+  public feed: Observable<Message[]>;
+  public readonly bot: User = {
+    id: 0,
+  };
+  public readonly user: User = {
+    id: 1,
+  };
+
+  introduction: Message[] = [
+    {
+      author: this.bot,
+      typing: true,
+    },
+  ];
+
+  private local: Subject<Message> = new Subject<Message>();
+  private msgQueue$ = new Subject<string>();
+  private sub$: Subscription;
+
+  constructor(
+    protected route: ActivatedRoute,
+    private chat: ChatService
+  ) {}
+
+  ngOnInit(): void {
+    this.feed = merge(from(this.introduction), this.local).pipe(scan((acc: Message[], x: Message) => [...acc, x], []));
+    setTimeout(() => {
+      this.local.next({
+        author: this.bot,
+        text: "Do you have any questions regarding the AI Experience Centre's event? Ask me and I can help you with it!",
+      });
+    }, 1000);
+
+    this.sub$ = this.msgQueue$
+      .pipe(
+        concatMap(v => {
+          this.local.next({
+            author: this.bot,
+            typing: true,
+          });
+          return this.chat.makePrediction$({ promptText: v });
+        })
+      )
+      .subscribe({
+        next: res => {
+          this.local.next({
+            author: this.bot,
+            text: res,
+          });
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.sub$.unsubscribe();
+  }
+
+  public sendMessage(): void {
+    const messageBox = this.messageBoxInput;
+    const newMessage = messageBox.value;
+
+    if (!newMessage) {
+      return;
+    }
+
+    const timestamp = new Date();
+    const message = {
+      text: newMessage,
+      author: this.user,
+      timestamp: timestamp,
+    };
+    this.local.next(message);
+    this.msgQueue$.next(newMessage);
+    this.local.next({
+      author: this.bot,
+      typing: true,
+    });
+
+    messageBox.value = '';
+    messageBox.focus();
+    this.scrollToBottom();
+  }
+
+  private scrollToBottom(): void {
+    setTimeout(() => {
+      const messageList = document.querySelector('.k-message-list');
+      if (messageList) {
+        messageList.scrollTop = messageList.scrollHeight;
+      }
+    }, 10);
+  }
+
+  public onKeyDown(e: KeyboardEvent): void {
+    const isEnter = e.keyCode === 13;
+
+    if (!isEnter) {
+      return;
+    }
+
+    const newLine = e.metaKey || e.ctrlKey;
+    const enterOnly = !(e.shiftKey || e.metaKey || e.ctrlKey);
+
+    if (enterOnly) {
+      e.preventDefault();
+      this.sendMessage();
+    }
+    if (newLine) {
+      this.messageBoxInput.value += `\r\n`;
+    }
+  }
+}

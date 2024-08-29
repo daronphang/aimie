@@ -1,0 +1,54 @@
+<div class="usecase-wrapper">
+  <div class="usecase-container">
+    <app-navbar [route]="route"></app-navbar>
+    <h1 class="title">Use Cases</h1>
+    <div class="subtitle">Learn more about our individual Use Cases in Manufacturing!</div>
+    <div class="legend-container mt-3">
+      <div class="d-flex align-items-center">
+        <div class="legend__zone--scl"></div>
+        <div class="ms-2">Supply Chain and Logistics</div>
+      </div>
+      <div class="d-flex align-items-center ms-4">
+        <div class="legend__zone--hq"></div>
+        <div class="ms-2">HQ</div>
+      </div>
+      <div class="d-flex align-items-center ms-4">
+        <div class="legend__zone--shopfloor"></div>
+        <div class="ms-2">Shopfloor</div>
+      </div>
+    </div>
+    <div class="timeline-wrapper">
+      <kendo-timeline [events]="events" [collapsibleEvents]="true">
+        <ng-template kendoTimelineCardBodyTemplate let-event let-index="index">
+          <div class="body__wrapper">
+            <div class="body__title">Scenario</div>
+            <div class="body__content">{{ extractScenario(event.description) }}</div>
+          </div>
+          <div class="mt-3 body__wrapper">
+            <div class="body__title">Technology</div>
+            <div class="body__content">{{ extractTechnology(event.description) }}</div>
+          </div>
+          <div class="mt-3 body__wrapper">
+            <div class="body__title">Value</div>
+            <div class="body__content">{{ extractValue(event.description) }}</div>
+          </div>
+        </ng-template>
+      </kendo-timeline>
+    </div>
+
+    <!-- <ngx-slick-carousel #slickModal="slick-carousel" class="slick-container" [config]="slideConfig">
+      <div *ngFor="let item of usecases">
+        <div ngxSlickItem class="slide">
+          <kendo-card width="auto">
+            <kendo-card-header>
+              <div>{{ item.title }}</div>
+            </kendo-card-header>
+            <kendo-card-body>
+              <img kendoCardMedia [src]="item.imageUrl" alt="img" class="image" />
+            </kendo-card-body>
+          </kendo-card>
+        </div>
+      </div>
+    </ngx-slick-carousel> -->
+  </div>
+</div>

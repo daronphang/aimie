@@ -1,0 +1,6 @@
+@use 'core/styles/variables';
+
+.button {
+  color: variables.$secondary;
+  padding: unset;
+}

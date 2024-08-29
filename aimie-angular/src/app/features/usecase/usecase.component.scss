@@ -1,0 +1,280 @@
+@use 'core/styles/variables';
+@use 'core/styles/utilities';
+
+.usecase-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.usecase-container {
+  @media (max-width: variables.$device-mobile-l) {
+    padding: utilities.$spacer * utilities.$size-3;
+    width: 100vw;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    justify-content: center;
+    width: 40rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    width: 50rem;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    width: 50rem;
+  }
+}
+
+.legend-container {
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: variables.$device-mobile-l) {
+    font-size: variables.$font-2xs;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    font-size: variables.$font-xs;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    font-size: variables.$font-sm;
+  }
+}
+
+@mixin legend__zone {
+  width: 20px;
+  height: 3px;
+}
+
+.legend__zone--scl {
+  @include legend__zone;
+  background-color: #9b64be;
+}
+
+.legend__zone--hq {
+  @include legend__zone;
+  background-color: #61c44e;
+}
+
+.legend__zone--shopfloor {
+  @include legend__zone;
+  background-color: #286a9f;
+}
+
+.zone--scl {
+  border: 2px solid #9b64be !important;
+}
+
+.zone--hq {
+  border: 2px solid #61c44e !important;
+}
+
+.zone--shopfloor {
+  border: 2px solid #286a9f !important;
+}
+
+.title {
+  text-align: center;
+  color: variables.$secondary;
+  font-weight: 600;
+
+  @media (max-width: variables.$device-mobile-l) {
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-3;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
+}
+
+.subtitle {
+  text-align: center;
+
+  @media (max-width: variables.$device-mobile-l) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    font-size: variables.$font-xs;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    font-size: variables.$font-reg;
+  }
+}
+
+.timeline-wrapper {
+  padding-left: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media (max-width: variables.$device-mobile-l) {
+    height: calc(100svh - 13rem);
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    height: calc(100svh - 18rem);
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    height: calc(100svh - 20rem);
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    height: calc(100svh - 20rem);
+  }
+}
+
+.slick-container {
+  @media (max-width: variables.$device-mobile-l) {
+    margin-top: utilities.$spacer * utilities.$size-3;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
+}
+
+.slick-prev:before {
+  content: '\2190';
+  color: variables.$primary;
+  border-color: variables.$primary;
+
+  @media (max-width: variables.$device-mobile-l) {
+    display: none;
+  }
+}
+
+.slick-next:before {
+  content: '\2192';
+  color: variables.$primary;
+
+  @media (max-width: variables.$device-mobile-l) {
+    display: none;
+  }
+}
+
+.slick-slide {
+  margin: 0rem;
+  width: 0%;
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+}
+
+.k-timeline-date {
+  display: none !important;
+}
+
+.k-timeline-flag {
+  background-color: variables.$bg-1 !important;
+  color: variables.$primary !important;
+  border: 2px solid #707070 !important;
+  transform: translateX(20%) !important;
+}
+
+.k-timeline-vertical .k-timeline-flag-wrap:first-child {
+  padding-top: unset;
+}
+
+.k-timeline-vertical {
+  padding-left: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.k-timeline-vertical::after {
+  border: unset;
+  background: transparent linear-gradient(to bottom, #0b6a9f 0%, #e48fc7 100%) 0% 0% no-repeat padding-box;
+}
+
+.k-timeline-vertical .k-timeline-card {
+  padding-left: unset;
+}
+
+.k-card {
+  // border: 2px solid #286a9f !important;
+
+  @media (max-width: variables.$device-mobile-l) {
+    width: calc(100vw - 4.5rem) !important;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: calc(100% - 6rem) !important;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    width: calc(100% - 6rem) !important;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    width: calc(100% - 6rem) !important;
+  }
+}
+
+.k-card-callout {
+  border: inherit;
+}
+
+.k-timeline-vertical .k-timeline-card .k-card .k-card-title .k-event-title {
+  @media (max-width: variables.$device-mobile-l) {
+    font-size: variables.$font-sm;
+    font-weight: 600;
+    white-space: wrap;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: calc(40rem - 2rem) !important;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    width: calc(50rem - 2rem) !important;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    width: calc(50rem - 2rem) !important;
+  }
+}
+
+.k-timeline .k-timeline-circle {
+  background-color: variables.$light;
+  border: 2px solid #707070;
+}
+
+// .body__wrapper {
+//   text-align: center;
+// }
+
+.body__title {
+  font-weight: 600;
+}
+
+.body__content {
+  white-space: pre-wrap;
+  color: variables.$tertiary;
+}

@@ -1,0 +1,8 @@
+<div>
+  <div class="subtitle">{{ data.question }}</div>
+  <div *ngIf="data.content" class="content">{{ data.content }}</div>
+  <div class="button-wrapper gap-4">
+    <button class="button" (click)="selectAnswer('human')">Human</button>
+    <button class="button" (click)="selectAnswer('AIMie')">AIMie</button>
+  </div>
+</div>

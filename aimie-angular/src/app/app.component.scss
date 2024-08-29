@@ -1,0 +1,18 @@
+@use 'core/styles/variables';
+
+.app-container {
+  position: relative;
+
+  @media (max-width: variables.$device-mobile-s) {
+  }
+  @media (min-width: calc(variables.$device-mobile-s + 1px)) and (max-width: variables.$device-mobile-m) {
+  }
+  @media (min-width: calc(variables.$device-mobile-m + 1px)) and (max-width: variables.$device-mobile-l) {
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+  }
+}

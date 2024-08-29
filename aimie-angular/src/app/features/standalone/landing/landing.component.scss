@@ -1,0 +1,137 @@
+@use 'core/styles/variables';
+@use 'core/styles/utilities';
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url('/assets/images/rainbox-banner.png') 0% 0% no-repeat padding-box;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  justify-content: center;
+  color: variables.$primary;
+  position: relative;
+
+  @media (max-width: variables.$device-mobile-l) {
+    height: 7rem;
+    padding: utilities.$spacer * utilities.$size-3;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    height: 8rem;
+    padding: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    height: 8rem;
+    padding: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    height: 8rem;
+    padding: utilities.$spacer * utilities.$size-5;
+  }
+}
+
+.subtitle {
+  width: 45vw;
+}
+
+.categories-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: 28rem;
+    left: calc(50% - 14rem);
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    width: 35rem;
+    left: calc(50% - 17.5rem);
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+}
+
+.category {
+  box-sizing: border-box;
+  text-align: center;
+  background-color: variables.$bg-2;
+  color: variables.$primary;
+  border: unset;
+  padding: utilities.$spacer * utilities.$size-3;
+  box-shadow:
+    rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+  @media (max-width: variables.$device-mobile-l) {
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    padding-top: utilities.$spacer * utilities.$size-4;
+    padding-bottom: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    padding-top: utilities.$spacer * utilities.$size-5;
+    padding-bottom: utilities.$spacer * utilities.$size-5;
+  }
+}
+
+.category__title {
+  font-weight: 700;
+}
+
+.category__title--chat {
+  color: variables.$chat;
+}
+
+.category__title--quiz {
+  color: variables.$quiz;
+}
+
+.category__title--usecase {
+  color: variables.$usecase;
+}
+
+.category__title--connect {
+  color: variables.$connect;
+}
+
+.chatbot {
+  position: absolute;
+  background-image: url('/assets/images/chatbot.png');
+  transform: rotate(-13deg);
+
+  @media (max-width: variables.$device-mobile-l) {
+    right: 1rem;
+    background-size: 5rem 5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    right: 1rem;
+    background-size: 6rem 6rem;
+    width: 6rem;
+    height: 6rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    right: 1rem;
+    background-size: 7rem 7rem;
+    width: 7rem;
+    height: 7rem;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    right: 1rem;
+    background-size: 7rem 7rem;
+    width: 7rem;
+    height: 7rem;
+  }
+}

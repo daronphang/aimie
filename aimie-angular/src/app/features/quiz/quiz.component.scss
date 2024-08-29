@@ -1,0 +1,143 @@
+@use 'core/styles/variables';
+@use 'core/styles/utilities';
+
+.quiz-wrapper {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url('/assets/images/rainbox-banner.png') 0% 0% no-repeat padding-box;
+  background-size: 170% 100%;
+  background-repeat: no-repeat;
+  height: 100svh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.quiz-container {
+  color: variables.$primary;
+
+  @media (max-width: variables.$device-mobile-l) {
+    padding: utilities.$spacer * utilities.$size-3;
+    height: 100svh;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: 40rem;
+    height: 35rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    width: 50rem;
+    height: 35rem;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    width: 50rem;
+    height: 35rem;
+  }
+}
+
+.text--center {
+  text-align: center !important;
+  margin-left: unset !important;
+  margin-right: unset !important;
+}
+
+.title {
+  font-weight: 700;
+  font-size: variables.$font-4xl;
+}
+
+.subtitle {
+  text-align: right;
+
+  @media (max-width: variables.$device-mobile-l) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    font-size: variables.$font-lg;
+    margin-left: 10%;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    font-size: variables.$font-xl;
+    margin-left: 20%;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    font-size: variables.$font-2xl;
+    margin-left: 30%;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-7;
+    font-size: variables.$font-2xl;
+    margin-left: 30%;
+  }
+}
+
+.content {
+  @media (max-width: variables.$device-mobile-l) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    font-size: variables.$font-sm;
+    margin-right: 10%;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    font-size: variables.$font-reg;
+    margin-right: 20%;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    font-size: variables.$font-lg;
+    margin-right: 30%;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-7;
+    font-size: variables.$font-lg;
+    margin-right: 30%;
+  }
+}
+
+.button {
+  border: unset;
+  margin: 0 auto;
+  display: block;
+  font-family: 'Urbane';
+  color: variables.$light;
+  border-radius: 100px;
+  background: transparent linear-gradient(122deg, #64c2db 0%, #7476ed 31%, #c994df 60%, #e56f8c 100%) 0% 0% no-repeat
+    padding-box;
+
+  @media (max-width: variables.$device-mobile-l) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-6;
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+}

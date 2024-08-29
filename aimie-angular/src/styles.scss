@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'core/styles/base';
+@use 'core/styles/variables';
+@use 'core/styles/chat';
+@use 'assets/fonts/poppins/poppins.scss';
+@use 'assets/fonts/urbane/urbane.scss';
+@use 'bootstrap/scss/bootstrap-utilities';
+@use 'node_modules/animate.css/animate.min.css';
+// @use '@progress/kendo-theme-default/dist/all.scss' with (
+//   $kendo-color-primary: variables.$primary,
+//   $kendo-button-hover-bg: #30c963,
+//   $kendo-color-success: variables.$success,
+//   $kendo-color-warning: variables.$warning,
+//   $kendo-color-error: variables.$error
+// );
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Poppins', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background: variables.$bg-2;
+  margin: 0px;
+
+  @media (max-width: variables.$device-mobile-l) {
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    h4 {
+      font-size: 16px;
+    }
+    h5 {
+      font-size: 14px;
+    }
+    h6 {
+      font-size: 12px;
+    }
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 22px;
+    }
+    h4 {
+      font-size: 18px;
+    }
+    h5 {
+      font-size: 16px;
+    }
+    h6 {
+      font-size: 14px;
+    }
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) {
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 20px;
+    }
+    h5 {
+      font-size: 18px;
+    }
+    h6 {
+      font-size: 16px;
+    }
+  }
+}
+
+.k-overlay {
+  background-color: variables.$primary;
+  opacity: 0.99;
+}
+
+.k-notification {
+  box-shadow: unset;
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 1rem;
+  max-width: 25rem;
+}
+
+.k-notification-group {
+  // to make notification global (stacking above dialog)
+  z-index: 100000;
+}
+
+.k-button-solid-base:hover {
+  background-color: unset;
+}
+
+.k-badge {
+  z-index: 1000;
+}

@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'Urbane';
+  src:
+    local('Urbane'),
+    url('./Urbane-Thin.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src:
+    local('Urbane'),
+    url('./Urbane-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src:
+    local('Urbane'),
+    url('./Urbane-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src:
+    local('Urbane'),
+    url('./Urbane-Bold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src:
+    local('Urbane'),
+    url('./Urbane-Heavy.ttf') format('truetype');
+  font-weight: 700;
+}
