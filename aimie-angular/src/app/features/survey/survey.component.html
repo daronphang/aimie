@@ -1,20 +1,22 @@
-<div class="survey-container" (window:resize)="onResize()">
-  <app-navbar [route]="route"></app-navbar>
-  <h2>Survey</h2>
+<div class="position-relative">
+  <div class="survey-container" (window:resize)="onResize()">
+    <app-navbar [route]="route"></app-navbar>
+    <h2>Survey</h2>
+  </div>
+  <kendo-chat [messages]="(feed$ | async)!" [user]="user" messageBoxType="textarea" (executeAction)="onAction($event)">
+    <ng-template kendoChatMessageBoxTemplate>
+      <div class="d-flex gap-2 w-100 align-items-center footer p-3">
+        <kendo-textarea
+          [disabled]="isInputDisabled"
+          #messageBoxInput
+          [placeholder]="isInputDisabled ? '' : 'Type your response...'"
+          resizable="none"
+          [rows]="3"
+          (keydown)="onKeyDown($event)"></kendo-textarea>
+        <button kendoButton fillMode="flat" [disabled]="isInputDisabled" (click)="onClickSend()">
+          <kendo-svgicon [icon]="paperPlaneIcon" size="large"></kendo-svgicon>
+        </button>
+      </div>
+    </ng-template>
+  </kendo-chat>
 </div>
-<kendo-chat [messages]="(feed$ | async)!" [user]="user" messageBoxType="textarea" (executeAction)="onAction($event)">
-  <ng-template kendoChatMessageBoxTemplate>
-    <div class="d-flex gap-2 w-100 align-items-center footer p-3">
-      <kendo-textarea
-        [disabled]="isInputDisabled"
-        #messageBoxInput
-        [placeholder]="isInputDisabled ? '' : 'Type your response...'"
-        resizable="none"
-        [rows]="3"
-        (keydown)="onKeyDown($event)"></kendo-textarea>
-      <button kendoButton fillMode="flat" [disabled]="isInputDisabled" (click)="onClickSend()">
-        <kendo-svgicon [icon]="paperPlaneIcon" size="large"></kendo-svgicon>
-      </button>
-    </div>
-  </ng-template>
-</kendo-chat>
