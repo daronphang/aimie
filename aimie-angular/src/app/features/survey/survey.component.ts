@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ExecuteActionEvent, Message, User } from '@progress/kendo-angular-conversational-ui';
 import { TextAreaComponent } from '@progress/kendo-angular-inputs';
@@ -7,6 +7,7 @@ import { delay, exhaustMap, from, merge, Observable, of, scan, Subject, Subscrip
 import { SurveyService } from './survey.service';
 import { SurveyResponse } from './survey.interface';
 import { surveyQuestions, defaultResponses, bot } from './questions';
+import { getViewportDevice } from '@core/utils/formatters';
 
 @Component({
   selector: 'app-survey',
@@ -14,7 +15,7 @@ import { surveyQuestions, defaultResponses, bot } from './questions';
   styleUrl: './survey.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class SurveyComponent implements OnInit, OnDestroy {
+export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('messageBoxInput', { static: false })
   protected messageBoxInput: TextAreaComponent;
   protected paperPlaneIcon = paperPlaneIcon;
@@ -79,6 +80,10 @@ export class SurveyComponent implements OnInit, OnDestroy {
       });
   }
 
+  ngAfterViewInit(): void {
+    this.onResize();
+  }
+
   ngOnDestroy(): void {
     this.sub$.unsubscribe();
   }
@@ -131,6 +136,12 @@ export class SurveyComponent implements OnInit, OnDestroy {
     if (newLine) {
       this.messageBoxInput.value += `\r\n`;
     }
+  }
+
+  protected onClickSend(): void {
+    const v = this.sendMessage();
+    this.updateResponse(v);
+    this.onNextQuestion();
   }
 
   protected extractTextWithoutOptions(msg: string): string {
@@ -208,5 +219,25 @@ export class SurveyComponent implements OnInit, OnDestroy {
           this.isInputDisabled = false;
         }
       });
+  }
+
+  protected onResize(): void {
+    const el = document.querySelector('.k-chat') as HTMLElement;
+    const device = getViewportDevice();
+    if (!el) return;
+    switch (device) {
+      case 'mobile':
+        el.style.height = `calc(${window.innerHeight}px - 6.5rem)`;
+        break;
+      case 'tablet':
+        el.style.height = `calc(${window.innerHeight}px - 8.2rem)`;
+        break;
+      case 'laptop':
+        el.style.height = `calc(${window.innerHeight}px - 8.2rem)`;
+        break;
+      case 'desktop':
+        el.style.height = `calc(${window.innerHeight}px - 11.5rem)`;
+        break;
+    }
   }
 }

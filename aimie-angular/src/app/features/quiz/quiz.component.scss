@@ -8,41 +8,32 @@
   background-size: 170% 100%;
   background-repeat: no-repeat;
   height: 100svh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
-
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    align-items: center;
-    justify-content: center;
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    align-items: center;
-    justify-content: center;
-  }
+  align-items: center;
+  justify-content: center;
 }
 
+/* Remember to change width for animations, must be aligned */
 .quiz-container {
   color: variables.$primary;
 
   @media (max-width: variables.$device-mobile-l) {
     padding: utilities.$spacer * utilities.$size-3;
-    height: 100svh;
+    width: 100vw;
+    height: 35rem;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    width: 40rem;
+    padding: utilities.$spacer * utilities.$size-4;
+    width: 100vw;
     height: 35rem;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: 50rem;
+    width: 45rem;
     height: 35rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    width: 50rem;
+    width: 45rem;
     height: 35rem;
   }
 }

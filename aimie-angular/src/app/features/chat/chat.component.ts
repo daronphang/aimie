@@ -1,10 +1,11 @@
-import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Message, User } from '@progress/kendo-angular-conversational-ui';
 import { TextAreaComponent } from '@progress/kendo-angular-inputs';
 import { paperPlaneIcon } from '@progress/kendo-svg-icons';
 import { concatMap, from, merge, Observable, scan, Subject, Subscription } from 'rxjs';
 import { ChatService } from './chat.service';
+import { getViewportDevice } from '@core/utils/formatters';
 
 @Component({
   selector: 'app-chat',
@@ -12,7 +13,7 @@ import { ChatService } from './chat.service';
   styleUrl: './chat.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class ChatComponent implements OnInit, OnDestroy {
+export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('messageBoxInput', { static: false })
   public messageBoxInput: TextAreaComponent;
   public paperPlaneIcon = paperPlaneIcon;
@@ -67,6 +68,10 @@ export class ChatComponent implements OnInit, OnDestroy {
           });
         },
       });
+  }
+
+  ngAfterViewInit(): void {
+    this.onResize();
   }
 
   ngOnDestroy(): void {
@@ -124,6 +129,26 @@ export class ChatComponent implements OnInit, OnDestroy {
     }
     if (newLine) {
       this.messageBoxInput.value += `\r\n`;
+    }
+  }
+
+  protected onResize(): void {
+    const el = document.querySelector('.k-chat') as HTMLElement;
+    const device = getViewportDevice();
+    if (!el) return;
+    switch (device) {
+      case 'mobile':
+        el.style.height = `calc(${window.innerHeight}px - 6.5rem)`;
+        break;
+      case 'tablet':
+        el.style.height = `calc(${window.innerHeight}px - 8.2rem)`;
+        break;
+      case 'laptop':
+        el.style.height = `calc(${window.innerHeight}px - 8.2rem)`;
+        break;
+      case 'desktop':
+        el.style.height = `calc(${window.innerHeight}px - 11.5rem)`;
+        break;
     }
   }
 }

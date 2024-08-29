@@ -46,8 +46,8 @@
   flex-direction: column;
 
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    width: 28rem;
-    left: calc(50% - 14rem);
+    width: 27rem;
+    left: calc(50% - 13.5rem);
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     width: 35rem;

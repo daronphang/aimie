@@ -21,16 +21,20 @@ $ sudo yum install git -y
 
 ### SSL
 
-1. Install openssl
+1. Install certbot
 
 ```sh
-$ sudo dnf install openssl mod_ssl
+$ sudo python3 -m venv /opt/certbot/
+$ sudo /opt/certbot/bin/pip install --upgrade pip
+$ sudo /opt/certbot/bin/pip install certbot certbot-nginx
+$ sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+
 ```
 
 2. Create self-signed certificate
 
 ```sh
-$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/private/apache-selfsigned.key -out /etc/pki/tls/certs/apache-selfsigned.crt
+$ sudo certbot certonly --webroot --webroot-path /etc/pki/tls/certs  -d aimie.com
 ```
 
 ### Docker

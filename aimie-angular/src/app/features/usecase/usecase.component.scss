@@ -5,10 +5,6 @@
   display: flex;
   flex-direction: column;
 
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    align-items: center;
-    justify-content: center;
-  }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     align-items: center;
     justify-content: center;
@@ -25,9 +21,8 @@
     width: 100vw;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    margin-top: utilities.$spacer * utilities.$size-5;
-    justify-content: center;
-    width: 40rem;
+    padding: utilities.$spacer * utilities.$size-4;
+    width: 100vw;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     margin-top: utilities.$spacer * utilities.$size-5;
@@ -230,13 +225,13 @@
     width: calc(100vw - 4.5rem) !important;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    width: calc(100% - 6rem) !important;
+    width: calc(100vw - 6rem) !important;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: calc(100% - 6rem) !important;
+    width: calc(50rem - 3rem) !important;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    width: calc(100% - 6rem) !important;
+    width: calc(50rem - 3rem) !important;
   }
 }
 
@@ -245,19 +240,20 @@
 }
 
 .k-timeline-vertical .k-timeline-card .k-card .k-card-title .k-event-title {
+  font-weight: 600;
+  white-space: wrap;
+
   @media (max-width: variables.$device-mobile-l) {
     font-size: variables.$font-sm;
-    font-weight: 600;
-    white-space: wrap;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    width: calc(40rem - 2rem) !important;
+    font-size: variables.$font-reg;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: calc(50rem - 2rem) !important;
+    font-size: variables.$font-reg;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    width: calc(50rem - 2rem) !important;
+    font-size: variables.$font-reg;
   }
 }
 

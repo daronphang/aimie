@@ -15,18 +15,20 @@
   border: unset;
   background-color: unset;
 
-  @media (max-width: variables.$device-mobile-l) {
-    height: calc(100svh - 6.5rem);
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    height: calc(100svh - 8.2rem);
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    height: calc(100svh - 8.2rem);
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    height: calc(100svh - 11.5rem);
-  }
+  // To configure height using JS due to keyboard and browser elements in mobile.
+
+  // @media (max-width: variables.$device-mobile-l) {
+  //   height: calc(100svh - 6.5rem);
+  // }
+  // @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+  //   height: calc(100svh - 8.2rem);
+  // }
+  // @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+  //   height: calc(100svh - 8.2rem);
+  // }
+  // @media (min-width: calc(variables.$device-laptop + 1px)) {
+  //   height: calc(100svh - 11.5rem);
+  // }
 }
 
 .k-chat .k-message-list-content {
