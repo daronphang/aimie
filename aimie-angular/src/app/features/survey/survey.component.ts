@@ -222,14 +222,19 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   protected onResize(): void {
+    // When the screen is resized i.e. with keyboard, need to check maintain the scroll
+    // position of the chat.
     const el = document.querySelector('.k-chat') as HTMLElement;
+    const el2 = document.querySelector('.k-message-list') as HTMLElement;
     const device = getViewportDevice();
     if (!el || !window.visualViewport) return;
 
-    // Check if scrolled to bottom.
-    const isScrolledToBottom = Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 1;
-    if (isScrolledToBottom) {
-      this.scrollToBottom();
+    if (el2) {
+      // Check if scrolled to bottom.
+      const isScrolledToBottom = Math.abs(el2.scrollHeight - el2.scrollTop - el2.clientHeight) < 1;
+      if (isScrolledToBottom) {
+        this.scrollToBottom();
+      }
     }
 
     switch (device) {

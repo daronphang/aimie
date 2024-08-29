@@ -133,6 +133,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   protected onResize(): void {
+    // When the screen is resized i.e. with keyboard, need to check maintain the scroll
+    // position of the chat.
     const el = document.querySelector('.k-chat') as HTMLElement;
     const el2 = document.querySelector('.k-message-list') as HTMLElement;
     const device = getViewportDevice();
@@ -141,7 +143,6 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     if (el2) {
       // Check if scrolled to bottom.
       const isScrolledToBottom = Math.abs(el2.scrollHeight - el2.scrollTop - el2.clientHeight) < 1;
-      console.log(Math.abs(el2.scrollHeight - el2.scrollTop - el2.clientHeight));
       if (isScrolledToBottom) {
         this.scrollToBottom();
       }
