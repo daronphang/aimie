@@ -1,8 +1,9 @@
 @use 'core/styles/variables';
 @use 'core/styles/utilities';
 
+html,
 body {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .chat-container {
