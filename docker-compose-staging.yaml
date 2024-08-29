@@ -5,7 +5,6 @@ services:
     build:
       context: aimie-angular
     ports:
-      - 80:80
       - 443:443
     deploy:
       restart_policy:
@@ -20,6 +19,8 @@ services:
       start_period: 10s
     volumes:
       - ./aimie-angular/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /etc/pki/tls/certs/apache-selfsigned.crt:/etc/pki/tls/certs/certificate.crt
+      - /etc/pki/tls/private/apache-selfsigned.key:/etc/pki/tls/private/private.key
     networks:
       - aimie
 
