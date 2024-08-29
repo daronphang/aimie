@@ -225,6 +225,13 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
     const el = document.querySelector('.k-chat') as HTMLElement;
     const device = getViewportDevice();
     if (!el || !window.visualViewport) return;
+
+    // Check if scrolled to bottom.
+    const isScrolledToBottom = Math.abs(el.scrollHeight - el.scrollTop - el.clientHeight) < 1;
+    if (isScrolledToBottom) {
+      this.scrollToBottom();
+    }
+
     switch (device) {
       case 'mobile':
         el.style.height = `calc(${window.visualViewport.height}px - 6.5rem)`;
