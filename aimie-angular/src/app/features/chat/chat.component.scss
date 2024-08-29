@@ -1,6 +1,10 @@
 @use 'core/styles/variables';
 @use 'core/styles/utilities';
 
+.chat-wrapper {
+  overflow: hidden;
+}
+
 .chat-container {
   color: variables.$primary;
   position: relative;
