@@ -29,7 +29,7 @@ export class LandingComponent {
     },
     {
       title: 'Use Cases',
-      text: 'Learn more about our individual Use Cases in Manufacturing',
+      text: 'Learn more about our individual Use Cases from the AI XP Centre!',
       class: 'category__title category__title--usecase',
       path: RoutePath.USECASE,
     },

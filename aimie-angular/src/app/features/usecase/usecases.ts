@@ -7,6 +7,7 @@ export const events: TimelineEvent[] = [
     description:
       'Unexpected demand surge or plunge in real-time.; Simulation enables visualisation of outcomes for key enterprise KPIs with different input parameters.\n\nOptimisation utilise Machine Learning algorithms to maximise KPI with optimal inputs.; Optimise gains in Enterprise processes.\nIncrease efficiency in production planning.',
     date: new Date('2011-10-05T14:48:00.000Z'),
+    images: [{ alt: 'image', src: '/assets/images/usecase-test.png' }],
   },
   {
     title: 'AI-enabled Production Capacity Planning',

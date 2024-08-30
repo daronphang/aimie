@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
 
+## Configurations
+
+### Mobile keyboard
+
+When a user focuses on an input, the mobile keyboard will push the content up. To prevent this, you can add the following:
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no, interactive-widget=resizes-content" />
+```
+
+If you need further customizations, you can add an event handler for window:resize and use window.innerHeight or window.visualViewport.height to modify the height of a container.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -80,17 +80,17 @@
 
 .zone--sc {
   // background-color: #9b64be;
-  border: 2px solid #9b64be;
+  border: 2px solid #9b64be !important;
 }
 
 .zone--hq {
   // background-color: #61c44e;
-  border: 2px solid #61c44e;
+  border: 2px solid #61c44e !important;
 }
 
 .zone--shopfloor {
   // background-color: #286a9f;
-  border: 2px solid #286a9f;
+  border: 2px solid #286a9f !important;
 }
 
 .title {
@@ -257,25 +257,7 @@
   border: inherit;
 }
 
-.k-event-title {
-  font-weight: 600;
-  white-space: wrap;
-
-  @media (max-width: variables.$device-mobile-l) {
-    font-size: variables.$font-sm;
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    font-size: variables.$font-reg;
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    font-size: variables.$font-reg;
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    font-size: variables.$font-reg;
-  }
-}
-
-// .k-timeline-vertical .k-timeline-card .k-card .k-card-title .k-event-title {
+// .k-event-title {
 //   font-weight: 600;
 //   white-space: wrap;
 
@@ -292,6 +274,24 @@
 //     font-size: variables.$font-reg;
 //   }
 // }
+
+.k-timeline-vertical .k-timeline-card .k-card .k-card-title .k-event-title {
+  font-weight: 600;
+  white-space: wrap;
+
+  @media (max-width: variables.$device-mobile-l) {
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    font-size: variables.$font-reg;
+  }
+}
 
 .k-timeline .k-timeline-circle {
   background-color: variables.$light;
@@ -314,4 +314,9 @@
 .card--expanded {
   transition: 1s;
   transform: rotate(90deg);
+}
+
+.usecase__img {
+  width: 100%;
+  object-fit: contain;
 }
