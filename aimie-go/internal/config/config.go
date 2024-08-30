@@ -36,22 +36,11 @@ type PostgresConfig struct {
 	Password 	string 	`yaml:"password"`
 	DBName 		string 	`yaml:"dbName"`
 }
-
-type KafkaConfig struct {
-	BrokerAddresses string `yaml:"brokerAddresses"` // localhost:9092,localhost:9093
-}
-
-type EtcdConfig struct {
-	BrokerAddresses string `yaml:"brokerAddresses"` // localhost:2379,localhost:22379
-}
-
 type Config struct {
 	Environment string 			`yaml:"environment"`
 	Port 		int 			`yaml:"port"`
 	LogDir 		string 			`yaml:"logDir"`
 	Postgres 	PostgresConfig 	`yaml:"postgres"`
-	Etcd		EtcdConfig		`yaml:"etcd"`
-	Kafka 		KafkaConfig 	`yaml:"kafka"`
 }
 
 var syncOnceConfig sync.Once

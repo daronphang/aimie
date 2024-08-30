@@ -45,7 +45,14 @@ $ sudo certbot certonly --webroot --webroot-path /etc/pki/tls/certs  -d aimie.co
 $ docker create network aimie
 ```
 
-2. Run docker-compose
+2. Spin PostgreSQL instance in Docker
+
+```sh
+$ cd ~
+$ docker run -d --name postgres -p 5432:5432 --network aimie --mount type=bind,source=./docker/postgres/data,target=/var/lib/postgresql/data:rw -e POSTGRES_PASSWORD=password postgres:16.4
+```
+
+3. Run docker-compose
 
 ```sh
 $ docker-compose -f docker-compose-staging.yaml up -d

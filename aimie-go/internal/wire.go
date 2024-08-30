@@ -3,7 +3,7 @@
 package internal
 
 import (
-	"user-service/internal/config"
+	"aimie-go/internal/config"
 
 	"github.com/google/wire"
 	"go.uber.org/zap"

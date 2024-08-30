@@ -7,8 +7,8 @@
 package internal
 
 import (
+	"aimie-go/internal/config"
 	"go.uber.org/zap"
-	"user-service/internal/config"
 )
 
 // Injectors from wire.go:

@@ -1,5 +1,23 @@
 @use 'core/styles/variables';
+@use 'core/styles/utilities';
 
 .text--secondary {
   font-size: variables.$font-sm;
+}
+
+.title {
+  text-align: center;
+  font-weight: 600;
+
+  @media (max-width: variables.$device-mobile-l) {
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-3;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+  }
 }

@@ -11,12 +11,11 @@ ARG CONFIG
 WORKDIR ${WORKINGPATH}
 
 # Install packages.
-COPY protobuf/ /protobuf
-COPY user-service/go.mod user-service/go.sum ./
+COPY go.mod go.sum ./
 RUN go mod download
 
 # Build from source code.
-COPY user-service/ ./
+COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o /http ./cmd/http
 
 # Stage: DEPLOY
@@ -24,13 +23,10 @@ FROM $DEPLOYMENT_IMAGE
 ARG WORKINGPATH
 WORKDIR ${WORKINGPATH}
 
-RUN wget "https://github.com/fullstorydev/grpcurl/releases/download/v1.9.1/grpcurl_1.9.1_linux_x86_64.tar.gz"; \
-tar -zxvf grpcurl_1.9.1_linux_x86_64.tar.gz -C /bin
-
 # When reading directory files in binary, path refers to
 # the location of where the binary was built.
 # To copy the files as reference.
-COPY user-service/ ./
+COPY . ./
 
 COPY --from=build /http /http
 ENTRYPOINT ["/http"]

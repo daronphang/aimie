@@ -1,9 +1,9 @@
 package util
 
 import (
+	"aimie-go/internal"
 	"fmt"
 	"time"
-	"user-service/internal"
 
 	"go.uber.org/zap"
 )

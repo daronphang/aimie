@@ -86,23 +86,19 @@
 }
 
 .category__title {
-  font-weight: 700;
+  font-weight: 600;
 }
 
-.category__title--chat {
-  color: variables.$chat;
+.category--chat {
 }
 
-.category__title--quiz {
-  color: variables.$quiz;
+.category--quiz {
 }
 
-.category__title--usecase {
-  color: variables.$usecase;
+.category--usecase {
 }
 
-.category__title--connect {
-  color: variables.$connect;
+.category--connect {
 }
 
 .chatbot {

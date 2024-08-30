@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"aimie-go/internal/config"
+	"aimie-go/internal/domain"
 	"context"
-	"user-service/internal/config"
-	"user-service/internal/domain"
 
 	"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgconn"

@@ -1,22 +1,18 @@
 package main
 
 import (
+	"aimie-go/internal"
+	"aimie-go/internal/config"
+	"aimie-go/internal/delivery/rest"
+	"aimie-go/internal/repository"
+	"aimie-go/internal/usecase"
 	"context"
 	"fmt"
-	"net"
 	"os"
 	"os/signal"
 	"time"
-	"user-service/internal"
-	"user-service/internal/config"
-	g "user-service/internal/delivery/grpc"
-	k "user-service/internal/delivery/kafka"
-	svcdis "user-service/internal/delivery/service-discovery"
-	"user-service/internal/repository"
-	"user-service/internal/usecase"
 
 	"go.uber.org/zap"
-	"google.golang.org/grpc"
 )
 
 var logger *zap.Logger
@@ -46,32 +42,18 @@ func main() {
 		logger.Fatal("error creating db", zap.String("trace", err.Error()))
 	}
 
-	// Create etcd dependency.
-	sd, err := svcdis.New(cfg)
-	if err != nil {
-		logger.Fatal("error connecting to etcd", zap.String("trace", err.Error()))
-	}
-
-	// Create kafka dependency.
-	kc := k.New(cfg)
-
 	// Create usecase with dependencies.
-	uc := usecase.NewUseCaseService(db, sd, kc)
-
-	// Listen to protocol and port.
-	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", cfg.Port))
-	if err != nil {
-		logger.Fatal(fmt.Sprintf("failed to listen on port %v", cfg.Port), zap.String("trace", err.Error()))
-	}
+	uc := usecase.NewUseCaseService(db)
 
 	// Create server.
-	s := g.NewServer(logger, uc)
+	s := rest.New(logger, uc)
 
-	// Start server.
+	// Run server.
 	go func() {
-		fmt.Printf("starting gRPC server in port %v...", cfg.Port)
-		if err := s.Serve(lis); err != nil {
-			logger.Fatal("failed to start gRPC server", zap.String("trace", err.Error()))
+		fmt.Printf("starting REST server in port %v", cfg.Port)
+		if err := s.Echo.Start(fmt.Sprintf(":%v", cfg.Port)); err != nil {
+			gracefulShutdown(ctx, s, db)
+			logger.Fatal("failed to start REST server", zap.String("trace", err.Error()))
 		}
 	}()
 
@@ -83,13 +65,15 @@ func main() {
 	<-ctx.Done()
 	_, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	gracefulShutdown(s, db, sd, kc)
+	gracefulShutdown(ctx, s, db)
 }
 
-func gracefulShutdown(s *grpc.Server, db *repository.Querier, sd *svcdis.ServiceDiscoveryClient, kc *k.KafkaClient) {
+func gracefulShutdown(ctx context.Context, s *rest.RestServer, db *repository.Querier) {
 	fmt.Println("performing graceful shutdown...")
-	s.GracefulStop()
+
+	if err := s.Echo.Shutdown(ctx); err != nil {
+		logger.Error("failed to shutdown REST server", zap.String("trace", err.Error()))
+	}
+
 	db.Close()
-	sd.Close()
-	kc.Close()
 }

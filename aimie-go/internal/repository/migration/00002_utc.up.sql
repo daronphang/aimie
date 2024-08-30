@@ -1,1 +1,0 @@
-ALTER TABLE user_to_channel ADD last_message_id BIGINT;

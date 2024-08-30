@@ -4,6 +4,7 @@
 .usecase-wrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     align-items: center;
@@ -37,6 +38,12 @@
 .legend-container {
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-top: utilities.$spacer * utilities.$size-3;
+  padding-bottom: utilities.$spacer * utilities.$size-4;
+  background-color: variables.$bg-1;
 
   @media (max-width: variables.$device-mobile-l) {
     font-size: variables.$font-2xs;
@@ -93,24 +100,6 @@
   border: 2px solid #286a9f !important;
 }
 
-.title {
-  text-align: center;
-  color: variables.$secondary;
-  font-weight: 600;
-
-  @media (max-width: variables.$device-mobile-l) {
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    margin-top: utilities.$spacer * utilities.$size-3;
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    margin-top: utilities.$spacer * utilities.$size-4;
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    margin-top: utilities.$spacer * utilities.$size-4;
-  }
-}
-
 .subtitle {
   text-align: center;
 
@@ -134,23 +123,20 @@
 
 .timeline-wrapper {
   padding-left: 0.5rem;
-  margin-top: 1.5rem;
   margin-bottom: 0rem;
-  overflow-y: auto;
-  overflow-x: hidden;
 
-  @media (max-width: variables.$device-mobile-l) {
-    height: calc(100svh - 13rem);
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    height: calc(100svh - 18rem);
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    height: calc(100svh - 20rem);
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    height: calc(100svh - 20rem);
-  }
+  // @media (max-width: variables.$device-mobile-l) {
+  //   height: calc(100svh - 13rem);
+  // }
+  // @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+  //   height: calc(100svh - 18rem);
+  // }
+  // @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+  //   height: calc(100svh - 20rem);
+  // }
+  // @media (min-width: calc(variables.$device-laptop + 1px)) {
+  //   height: calc(100svh - 20rem);
+  // }
 }
 
 .slick-container {

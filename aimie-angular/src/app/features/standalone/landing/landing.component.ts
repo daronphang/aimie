@@ -18,25 +18,25 @@ export class LandingComponent {
     {
       title: 'Interact with AIMie',
       text: 'Chat with AIMie and ask any questions you have',
-      class: 'category__title category__title--chat',
+      class: 'category--chat',
       path: RoutePath.CHAT,
     },
     {
       title: 'Can you beat AIMie?',
       text: 'Challenge AIMie to a game of Human vs AI',
-      class: 'category__title category__title--quiz',
+      class: 'category--quiz',
       path: RoutePath.QUIZ,
     },
     {
       title: 'Use Cases',
       text: 'Learn more about our individual Use Cases from the AI XP Centre!',
-      class: 'category__title category__title--usecase',
+      class: 'category--usecase',
       path: RoutePath.USECASE,
     },
     {
       title: 'Survey',
       text: 'Take part in our survey and connect with us!',
-      class: 'category__title category__title--connect',
+      class: 'category--connect',
       path: RoutePath.SURVEY,
     },
   ];

@@ -8,8 +8,8 @@
   </div>
   <div class="categories-wrapper btn p-3 gap-4 mt-3">
     <div *ngFor="let row of categories">
-      <button class="category w-100" (click)="onNavigate(row.path)">
-        <h4 [ngClass]="row.class">{{ row.title }}</h4>
+      <button class="category w-100" [ngClass]="row.class" (click)="onNavigate(row.path)">
+        <h4 class="category__title">{{ row.title }}</h4>
         <div class="text--secondary">{{ row.text }}</div>
       </button>
     </div>

@@ -1,12 +1,12 @@
 package repository
 
 import (
+	"aimie-go/internal"
+	"aimie-go/internal/config"
 	"context"
 	"fmt"
 	"net/url"
 	"time"
-	"user-service/internal"
-	"user-service/internal/config"
 
 	"database/sql"
 

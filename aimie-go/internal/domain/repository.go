@@ -10,21 +10,9 @@ type ExtRepo interface {
 }
 
 type Repository interface {
-	CreateUser(ctx context.Context, arg NewUser) (UserMetadata, error)
-	GetUser(ctx context.Context, arg string) (UserMetadata, error)
-	GetUserById(ctx context.Context, arg string) (UserMetadata, error)
-	GetUsers(ctx context.Context, arg []string) ([]UserMetadata, error)
-	UpdateUser(ctx context.Context, arg UserMetadata) error
-	AddFriend(ctx context.Context, arg NewFriend) error
-	GetFriends(ctx context.Context, arg string) ([]Friend, error)
-	CreateUserToChannelAssociation(ctx context.Context, arg Channel) error
-	CreateGroupChannel(ctx context.Context, arg Channel) error
-	GetUsersAssociatedToChannel(ctx context.Context, arg string) ([]UserContact, error)
-	GetChannelsAssociatedToUser(ctx context.Context, arg string) ([]Channel, error)
-	GetUsersAssociatedToTargetUser(ctx context.Context, arg string) ([]string, error)
-	GetUsersContactsMetadata(ctx context.Context, arg []string) ([]UserContact, error)
-	GetGroupChannel(ctx context.Context, arg string) (Channel, error)
-	RemoveGroupMembers(ctx context.Context, arg GroupMembers) error
-	RemoveGroup(ctx context.Context, arg string) error
-	UpdateLastReadMessage(ctx context.Context, arg LastReadMessage) error
+	GetSurveyQuestions(ctx context.Context) ([]SurveyQuestion, error) 
+	AddSurveyQuestions(ctx context.Context, arg []SurveyQuestion) error
+	UpdateSurveyQuestion(ctx context.Context, arg SurveyQuestion) error 
+	AddSurveyResponse(ctx context.Context, arg []SurveyEntry) error 
+	GetSurveyResponses(ctx context.Context, arg string) ([]SurveyEntry, error)
 }
