@@ -44,7 +44,7 @@ services:
       retries: 3
       start_period: 10s
     volumes:
-      - ./internal/config/config.staging.yaml:/app/internal/config/config.staging.yaml
+      - ./aimie-go/internal/config/config.staging.yaml:/app/internal/config/config.staging.yaml
     networks:
       - aimie
 
