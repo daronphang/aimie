@@ -12,7 +12,7 @@ services:
         delay: 10s
         window: 120s
     healthcheck:
-      test: ["CMD-SHELL", "curl --fail localhost:80/ || exit 1"]
+      test: ["CMD-SHELL", "curl --fail localhost:443/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
