@@ -29,6 +29,8 @@ services:
       context: aimie-go
     ports:
       - 8080:8080
+    environment:
+      - GO_ENV=STAGING
     deploy:
       restart_policy:
         condition: on-failure
@@ -41,6 +43,8 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
+    volumes:
+      - ./internal/config/config.staging.yaml:/app/internal/config/config.staging.yaml
     networks:
       - aimie
 
