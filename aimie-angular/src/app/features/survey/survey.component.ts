@@ -245,10 +245,10 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
         el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
         break;
       case 'laptop':
-        el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 10rem)`;
         break;
       case 'desktop':
-        el.style.height = `calc(${window.visualViewport.height}px - 11.5rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 13rem)`;
         break;
     }
   }

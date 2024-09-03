@@ -10,8 +10,8 @@
   display: flex;
   flex-direction: column;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-    url('/assets/images/rainbox-banner.png') 0% 0% no-repeat padding-box;
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url('/assets/images/landing-banner.jpg') 0% 0% no-repeat padding-box;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   justify-content: center;
@@ -19,19 +19,19 @@
   position: relative;
 
   @media (max-width: variables.$device-mobile-l) {
-    height: 7rem;
+    height: 9rem;
     padding: utilities.$spacer * utilities.$size-3;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    height: 8rem;
+    height: 11rem;
     padding: utilities.$spacer * utilities.$size-4;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    height: 8rem;
+    height: 12rem;
     padding: utilities.$spacer * utilities.$size-4;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    height: 8rem;
+    height: 12rem;
     padding: utilities.$spacer * utilities.$size-5;
   }
 }
@@ -40,65 +40,46 @@
   width: 45vw;
 }
 
-.categories-wrapper {
+.buttons-wrapper {
   position: relative;
   display: flex;
-  flex-direction: column;
-
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    width: 27rem;
-    left: calc(50% - 13.5rem);
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: 35rem;
-    left: calc(50% - 17.5rem);
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    width: 40rem;
-    left: calc(50% - 20rem);
-  }
-}
-
-.category {
-  box-sizing: border-box;
-  text-align: center;
-  background-color: variables.$bg-2;
-  color: variables.$primary;
-  border: unset;
-  padding: utilities.$spacer * utilities.$size-3;
-  box-shadow:
-    rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: variables.$device-mobile-l) {
+    height: calc(100svh - 9rem);
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    height: calc(100svh - 11rem);
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    padding-top: utilities.$spacer * utilities.$size-4;
-    padding-bottom: utilities.$spacer * utilities.$size-4;
+    min-height: calc(100svh - 12rem);
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    padding-top: utilities.$spacer * utilities.$size-5;
-    padding-bottom: utilities.$spacer * utilities.$size-5;
+    min-height: calc(100svh - 12rem);
   }
 }
 
-.category__title {
-  font-weight: 600;
-}
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
 
-.category--chat {
-}
-
-.category--quiz {
-}
-
-.category--usecase {
-}
-
-.category--connect {
+  @media (max-width: variables.$device-mobile-l) {
+    width: 100%;
+    margin-left: utilities.$spacer * utilities.$size-3;
+    gap: utilities.$spacer * utilities.$size-3;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: 26rem;
+    gap: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    width: 32rem;
+    gap: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    gap: utilities.$spacer * utilities.$size-4;
+  }
 }
 
 .chatbot {

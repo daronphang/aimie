@@ -14,3 +14,8 @@ export interface DefaultResponses {
 export interface CustomMessage extends Message {
   questionId: string;
 }
+
+export interface SurveyEntry {
+  questionId: string;
+  response: string;
+}

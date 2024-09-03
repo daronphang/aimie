@@ -37,7 +37,7 @@ func (h *RestHandler) HandleSaveSurveyResponse(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
-	return c.String(http.StatusOK, "success")
+	return c.JSON(http.StatusOK, MessageResponse{Message: "success"})
 }
 
 func (h *RestHandler) HandleGetSurveyQuestions(c echo.Context) error {

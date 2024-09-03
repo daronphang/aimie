@@ -10,6 +10,10 @@ import (
 
 var logger, _ = internal.WireLogger()
 
+type MessageResponse struct {
+	Message string 	`json:"message"`
+}
+
 type RestHandler struct {
 	usecase *usecase.UseCaseService
 }

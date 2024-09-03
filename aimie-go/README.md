@@ -1,117 +1,69 @@
-# User service
+# AIMie
 
 ## First time setup
 
-### etcd
+### Populate DB
 
-1. Spin up Docker instance. Host IP is the IP of docker container
-
-```sh
-$ docker run -d -p 4001:4001 -p 2380:2380 -p 2379:2379 \
- --name etcd quay.io/coreos/etcd:v3.5.15 \
-  /usr/local/bin/etcd \
- --name etcd0 \
- --advertise-client-urls http://HOST_IP:2379,http://HOST_IP:4001 \
- --listen-client-urls http://0.0.0.0:2379,http://0.0.0.0:4001 \
- --initial-advertise-peer-urls http://HOST_IP:2380 \
- --listen-peer-urls http://0.0.0.0:2380 \
- --initial-cluster-token etcd-cluster-1 \
- --initial-cluster etcd0=http://HOST_IP:2380 \
- --initial-cluster-state new
-```
-
-### Kafka
-
-1. Spin up Docker instance
-
-```sh
-$ docker run --rm --name kafka -p 9092:9092 -d apache/kafka:3.7.0
-```
-
-### PostgreSQL
-
-1. Spin up Docker instance
-
-```sh
-$ docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:16.4
+```json
+[
+  {
+    "questionId": "Q1",
+    "question": "Would you be comfortable with sharing your responses and data with the AI COE team?"
+  },
+  {
+    "questionId": "Q2",
+    "question": "Which organisation are you from?"
+  },
+  {
+    "questionId": "Q3",
+    "question": "How would you describe your role in your organisation?"
+  },
+  {
+    "questionId": "Q4",
+    "question": "How would you rate your understanding of how AI can be applied in your organisation?"
+  },
+  {
+    "questionId": "Q5",
+    "question": "What is your biggest concern regarding adopting AI solutions in your organisation?"
+  },
+  {
+    "questionId": "Q6",
+    "question": "Has your company explored or implemented any AI solutions so far?"
+  },
+  {
+    "questionId": "Q7",
+    "question": "How willing is your company to invest/invest more in AI technologies within the next few months?"
+  },
+  {
+    "questionId": "Q8",
+    "question": "What resources or support would you need to feel confident in adopting AI?"
+  },
+  {
+    "questionId": "Q9",
+    "question": "Which of the following 5 pain points is most relevant to you?"
+  },
+  {
+    "questionId": "Q10",
+    "question": "Did you manage to take part in the AI Experience Centre Tour?"
+  },
+  {
+    "questionId": "Q11",
+    "question": "Which of the AI solutions that were showcased during the AI Experience is most relevant to your needs?"
+  },
+  {
+    "questionId": "Q12",
+    "question": "Which of the following AI solutions would you like to start adopting in the next 12 months?"
+  },
+  {
+    "questionId": "Q13",
+    "question": "Would you like to connect with us?"
+  }
+]
 ```
 
 ## Development
 
-### Wire (DI)
-
-https://github.com/google/wire
-
-1. Write Providers and Wire functions
-
-2. Generate Wire code
-
 ```sh
-$ cd path/to/root/directory
-$ wire ./internal
-$ go generate ./internal # once wire_gen.go is created, can regenerate using this
-```
-
-### Web server
-
-1. Run server
-
-```sh
-$ cd path/to/root/directory
-$ go run cmd/rest/main.go
-```
-
-## Testing
-
-Before running tests, set environment variable GO_ENV to 'TESTING'.
-
-```sh
-$ export GO_ENV=TESTING
-```
-
-### Mockery
-
-To generate mocks from interfaces, use Mockery.
-
-https://github.com/vektra/mockery
-
-```sh
-$ brew install mockery
-$ cd path/to/root/directory
-$ mockery # reads from .mockery.yaml config file
-```
-
-### Running unit tests
-
-```sh
-$ cd path/to/root/directory
-$ go test ./... -v
-$ go test ./... -v -coverpkg=./...
-```
-
-### Running integration tests
-
-1. Start containers with Docker Compose
-
-```sh
-$ cd path/to/root/directory
-$ docker compose -f docker-compose-testing.yaml up -d
-```
-
-## Deployment
-
-### Docker
-
-As protobuf files are stored in the parent directory, Docker's build context needs to be specified from there.
-
-```sh
-$ cd path/to/parent/directory
-$ docker build -t user-service -f ./user-service/Dockerfile .
-```
-
-### Docker compose
-
-```sh
-$ docker network create -d bridge chatapp
-$ docker compose -f docker-compose-staging.yaml up -d
+$ cd/path/to/root/directory
+$ go run cmd/http/main.go
 ```

@@ -3,7 +3,7 @@ import { SurveyModule } from './survey.module';
 import { HttpClient } from '@angular/common/http';
 import { AppService } from '@core/services/app.service';
 import { catchError, map, Observable, of } from 'rxjs';
-import { SurveyResponse } from './survey.interface';
+import { SurveyEntry, SurveyResponse } from './survey.interface';
 import { defaultResponses } from './questions';
 import { Message } from '@progress/kendo-angular-conversational-ui';
 
@@ -17,7 +17,14 @@ export class SurveyService {
   ) {}
 
   public saveSurveyResponse$(response: SurveyResponse): Observable<Message> {
-    return this.http.post(this.app.api.SURVEY_API, response).pipe(
+    const payload: SurveyEntry[] = Object.keys(response).map(key => {
+      return {
+        questionId: key,
+        response: response[key],
+      };
+    });
+
+    return this.http.post(this.app.api.SURVEY_API, payload).pipe(
       map(() => {
         return defaultResponses.END;
       }),

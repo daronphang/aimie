@@ -4,5 +4,5 @@ export const environment = {
   DATAROBOT_KEY: '544ec55f-61bf-f6ee-0caf-15c7f919a45d',
   DATAROBOT_CHAT_API:
     'https://cfds-ccm-prod.orm.datarobot.com/predApi/v1.0/deployments/66c2b54199edcfb46e7bc862/predictions',
-  SURVEY_API: 'http://localhost:5000',
+  SURVEY_API: 'http://localhost:8080/api/v1/survey',
 };

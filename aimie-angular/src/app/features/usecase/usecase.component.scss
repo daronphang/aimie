@@ -26,11 +26,11 @@
     width: 100vw;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    margin-top: utilities.$spacer * utilities.$size-5;
+    padding: utilities.$spacer * utilities.$size-4;
     width: 50rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    margin-top: utilities.$spacer * utilities.$size-5;
+    padding: utilities.$spacer * utilities.$size-4;
     width: 50rem;
   }
 }

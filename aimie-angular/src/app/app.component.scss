@@ -16,3 +16,14 @@
   @media (min-width: calc(variables.$device-laptop + 1px)) {
   }
 }
+
+.background {
+  background-image: url('/assets/images/background.png');
+  width: 100vw;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  opacity: 0.3;
+  background-size: cover;
+  z-index: -1;
+}

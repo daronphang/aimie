@@ -1,0 +1,96 @@
+@use 'core/styles/variables';
+@use 'core/styles/utilities';
+
+.card {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: variables.$light;
+  color: variables.$primary;
+  border: unset;
+  padding: utilities.$spacer * utilities.$size-3;
+
+  @media (max-width: variables.$device-mobile-l) {
+    width: calc(50vw - 1.6rem);
+    height: 12rem;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: 12rem;
+    height: 15rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    width: 14rem;
+    height: 20rem;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    width: 14rem;
+    height: 25rem;
+  }
+}
+
+.card--chat {
+  box-shadow: #adcad5 2.4px 2.4px 3.2px;
+}
+
+.card--quiz {
+  box-shadow: #d5adbdf4 2.4px 2.4px 3.2px;
+}
+
+.card--usecase {
+  box-shadow: #bfadd5 2.4px 2.4px 3.2px;
+}
+
+.card--connect {
+  box-shadow: #add5c6f4 2.4px 2.4px 3.2px;
+}
+
+.card__title {
+  font-weight: 600;
+}
+
+.img {
+  box-shadow: 0px 3px 6px #00000029;
+
+  @media (max-width: variables.$device-mobile-l) {
+    height: 5rem;
+    width: auto;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-3;
+    padding: utilities.$spacer * utilities.$size-1;
+    width: 5rem;
+    height: 5rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    padding: utilities.$spacer * utilities.$size-1;
+    width: 7rem;
+    height: 7rem;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    padding: utilities.$spacer * utilities.$size-2;
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+.text {
+  @media (max-width: variables.$device-mobile-l) {
+    margin-top: utilities.$spacer * utilities.$size-3;
+    font-size: variables.$font-2xs;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-4;
+    font-size: variables.$font-xs;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    margin-top: utilities.$spacer * utilities.$size-5;
+    font-size: variables.$font-reg;
+  }
+}
