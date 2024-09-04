@@ -11,6 +11,7 @@ export interface QuizQuestion {
   imageUrl?: string;
   content?: string;
   options: Option[];
+  funFact?: string;
 }
 
 export interface QuizResponse {

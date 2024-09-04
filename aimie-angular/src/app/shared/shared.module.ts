@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -41,6 +41,7 @@ Avoid using services as they are singletons that are provided once for the entir
     OverlayDirective,
     ComponentDirective,
     ImageDirective,
+    NgOptimizedImage,
 
     CommonModule,
     ReactiveFormsModule,
@@ -65,6 +66,7 @@ Avoid using services as they are singletons that are provided once for the entir
   providers: [NotificationService],
   exports: [
     CommonModule,
+    NgOptimizedImage,
     ReactiveFormsModule,
     RouterModule,
     FormsModule,

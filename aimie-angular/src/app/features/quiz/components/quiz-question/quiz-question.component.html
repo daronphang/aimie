@@ -13,10 +13,13 @@
 </div>
 
 <kendo-dialog *ngIf="openDialog">
-  <div class="dialog-body p-3">
-    <fa-icon *ngIf="isCorrect" class="right" [icon]="checkIcon" size="2xl"></fa-icon>
-    <fa-icon *ngIf="!isCorrect" class="wrong" [icon]="crossIcon" size="2xl"></fa-icon>
-    <div class="ms-2">{{ dialogContent }}</div>
+  <div class="p-3">
+    <div class="d-flex align-items-center">
+      <fa-icon *ngIf="isCorrect" class="right" [icon]="checkIcon" size="2xl"></fa-icon>
+      <fa-icon *ngIf="!isCorrect" class="wrong" [icon]="crossIcon" size="2xl"></fa-icon>
+      <div class="ms-2">{{ dialogContent }}</div>
+    </div>
+    <p class="fun-fact mt-3">{{ data.funFact }}</p>
   </div>
 
   <kendo-dialog-actions>

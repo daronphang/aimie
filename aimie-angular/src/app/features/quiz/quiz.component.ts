@@ -95,6 +95,8 @@ export class QuizComponent {
         { isCorrect: true, value: 'AIMie' },
         { isCorrect: false, value: 'Human' },
       ],
+      funFact:
+        'Fun fact! The above quote was a paraphrase written by AI that reflects Andrew Ng ideas in the context of AI’s potential impact on manufacturing!',
     },
     {
       index: 1,
@@ -104,6 +106,7 @@ export class QuizComponent {
         { isCorrect: false, value: 'AIMie' },
         { isCorrect: true, value: 'Human' },
       ],
+      funFact: 'Fun fact! The machine above is an actual machine used in our Model Factory @ SIMTech!',
     },
     {
       index: 2,
