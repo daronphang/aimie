@@ -70,7 +70,7 @@
     gap: utilities.$spacer * utilities.$size-3;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    width: 26rem;
+    width: 25rem;
     gap: utilities.$spacer * utilities.$size-4;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {

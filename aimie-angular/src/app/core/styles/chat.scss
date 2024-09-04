@@ -66,7 +66,7 @@
 
 .k-chat .k-message-group.k-alt .k-chat-bubble {
   @include chat-message;
-  background: transparent linear-gradient(180deg, #ceeded 0%, #f2d6eab5 0%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #f8e9f2 0%, #dfcef7 100%) 0% 0% no-repeat padding-box;
 }
 
 .k-chat .k-message-group:not(.k-alt) .k-chat-bubble::before {
