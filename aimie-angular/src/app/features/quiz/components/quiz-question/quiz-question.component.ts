@@ -1,11 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
+interface Option {
+  value: string;
+  isCorrect: boolean;
+}
 export interface QuizQuestion {
   index: number;
   question: string;
   imageUrl?: string;
   content?: string;
-  audio?: string;
+  options: Option[];
 }
 
 export interface QuizResponse {
@@ -17,17 +22,29 @@ export interface QuizResponse {
   selector: 'app-quiz-question',
   templateUrl: './quiz-question.component.html',
   styleUrl: './quiz-question.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class QuizQuestionComponent {
   @Input() data: QuizQuestion;
-  @Output() response: EventEmitter<QuizResponse> = new EventEmitter();
-  protected isOpen = true;
+  @Output() response: EventEmitter<null> = new EventEmitter();
+  protected openDialog = false;
+  protected isCorrect = false;
+  protected dialogContent = '';
+  protected checkIcon = faCircleCheck;
+  protected crossIcon = faCircleXmark;
 
-  protected selectAnswer(v: string): void {
-    this.response.emit({
-      index: this.data.index,
-      answer: v,
-    });
-    this.isOpen = false;
+  protected selectAnswer(v: Option): void {
+    if (v.isCorrect) {
+      this.isCorrect = true;
+      this.dialogContent = 'That is the right answer!';
+    } else {
+      this.dialogContent = 'That is the wrong answer!';
+    }
+
+    this.openDialog = true;
+  }
+
+  protected onNextQuestion(): void {
+    this.response.emit();
   }
 }

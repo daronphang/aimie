@@ -1,8 +1,25 @@
 <div>
   <div class="subtitle">{{ data.question }}</div>
-  <div *ngIf="data.content" class="content">{{ data.content }}</div>
+  <div class="content-body">
+    <div *ngIf="data.content">{{ data.content }}</div>
+    <img *ngIf="data.imageUrl" class="img" [src]="data.imageUrl" alt="img" />
+  </div>
+
   <div class="button-wrapper gap-4">
-    <button class="button" (click)="selectAnswer('human')">Human</button>
-    <button class="button" (click)="selectAnswer('AIMie')">AIMie</button>
+    <div *ngFor="let item of data.options">
+      <button class="quiz-button" (click)="selectAnswer(item)">{{ item.value }}</button>
+    </div>
   </div>
 </div>
+
+<kendo-dialog *ngIf="openDialog">
+  <div class="dialog-body p-3">
+    <fa-icon *ngIf="isCorrect" class="right" [icon]="checkIcon" size="2xl"></fa-icon>
+    <fa-icon *ngIf="!isCorrect" class="wrong" [icon]="crossIcon" size="2xl"></fa-icon>
+    <div class="ms-2">{{ dialogContent }}</div>
+  </div>
+
+  <kendo-dialog-actions>
+    <button class="quiz-button" (click)="onNextQuestion()">Next Question</button>
+  </kendo-dialog-actions>
+</kendo-dialog>

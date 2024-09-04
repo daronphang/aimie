@@ -21,3 +21,36 @@
     margin-top: utilities.$spacer * utilities.$size-4;
   }
 }
+
+.quiz-button {
+  border: unset;
+  margin: 0 auto;
+  display: block;
+  width: 12rem;
+  font-family: 'Urbane';
+  color: variables.$light;
+  border-radius: 100px;
+  background: transparent linear-gradient(122deg, #64c2db 0%, #7476ed 31%, #c994df 60%, #e56f8c 100%) 0% 0% no-repeat
+    padding-box;
+
+  @media (max-width: variables.$device-mobile-l) {
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    padding: utilities.$spacer * utilities.$size-3;
+    padding-left: utilities.$spacer * utilities.$size-5;
+    padding-right: utilities.$spacer * utilities.$size-5;
+  }
+}

@@ -4,38 +4,36 @@
 .subtitle {
   @media (max-width: variables.$device-mobile-l) {
     font-size: variables.$font-lg;
-    margin-right: 10%;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
     font-size: variables.$font-xl;
-    margin-right: 20%;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     font-size: variables.$font-2xl;
-    margin-right: 30%;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
     font-size: variables.$font-2xl;
-    margin-right: 30%;
   }
 }
 
-.content {
-  text-align: center;
+.content-body {
+  display: flex;
+  justify-content: center;
+
   @media (max-width: variables.$device-mobile-l) {
-    margin-top: utilities.$spacer * utilities.$size-5;
+    margin-top: utilities.$spacer * utilities.$size-4;
     font-size: variables.$font-sm;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    margin-top: utilities.$spacer * utilities.$size-6;
+    margin-top: utilities.$spacer * utilities.$size-5;
     font-size: variables.$font-reg;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    margin-top: utilities.$spacer * utilities.$size-6;
+    margin-top: utilities.$spacer * utilities.$size-5;
     font-size: variables.$font-lg;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    margin-top: utilities.$spacer * utilities.$size-7;
+    margin-top: utilities.$spacer * utilities.$size-6;
     font-size: variables.$font-lg;
   }
 }
@@ -46,42 +44,38 @@
   align-items: center;
 
   @media (max-width: variables.$device-mobile-l) {
-    margin-top: utilities.$spacer * utilities.$size-7;
+    margin-top: utilities.$spacer * utilities.$size-5;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    margin-top: utilities.$spacer * utilities.$size-7;
+    margin-top: utilities.$spacer * utilities.$size-5;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    margin-top: utilities.$spacer * utilities.$size-7;
+    margin-top: utilities.$spacer * utilities.$size-6;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    margin-top: utilities.$spacer * utilities.$size-7;
+    margin-top: utilities.$spacer * utilities.$size-6;
   }
 }
 
-.button {
-  border: unset;
-  color: variables.$primary;
-  border-radius: 100px;
-  background: variables.$light;
-  border: 1px solid variables.$primary;
-  width: 10rem;
-  font-family: 'Urbane';
+.dialog-body {
+  display: flex;
+  align-items: center;
+}
 
-  @media (max-width: variables.$device-mobile-l) {
-    padding: utilities.$spacer * utilities.$size-3;
-    font-size: variables.$font-lg;
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    padding: utilities.$spacer * utilities.$size-3;
-    font-size: variables.$font-lg;
-  }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    padding: utilities.$spacer * utilities.$size-3;
-    font-size: variables.$font-lg;
-  }
-  @media (min-width: calc(variables.$device-laptop + 1px)) {
-    padding: utilities.$spacer * utilities.$size-3;
-    font-size: variables.$font-lg;
-  }
+.right {
+  color: variables.$success;
+}
+
+.wrong {
+  color: variables.$error;
+}
+
+.k-dialog-wrapper .k-dialog {
+  border-radius: 0.2rem;
+}
+
+.img {
+  width: auto;
+  height: 15rem;
+  object-fit: contain;
 }
