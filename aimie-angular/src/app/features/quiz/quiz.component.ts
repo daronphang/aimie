@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { QuizQuestion } from './components/quiz-question/quiz-question.component';
-import { getViewportDevice } from '@core/utils/formatters';
+import { getViewportDevice, preloadImages } from '@core/utils/formatters';
 
 const slideLeftRightAnimation = trigger('slideLeftRight', [
   transition('void -> mobileEnter', [
@@ -83,7 +83,7 @@ const slideLeftRightAnimation = trigger('slideLeftRight', [
   styleUrl: './quiz.component.scss',
   animations: [slideLeftRightAnimation],
 })
-export class QuizComponent {
+export class QuizComponent implements OnInit {
   protected curIndex = -1;
   protected questions: QuizQuestion[] = [
     {
@@ -123,6 +123,11 @@ export class QuizComponent {
     protected route: ActivatedRoute,
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+    const images: string[] = ['/assets/images/quiz-machine.png', '/assets/images/quiz-mona.png'];
+    preloadImages(images);
+  }
 
   protected onNextQuestion(): void {
     this.curIndex += 1;

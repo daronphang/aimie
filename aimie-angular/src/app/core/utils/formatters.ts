@@ -172,3 +172,10 @@ export function getViewportDevice(): ViewportDevice {
   else if (x <= 1024) return 'laptop';
   return 'desktop';
 }
+
+export function preloadImages(images: string[]) {
+  images.forEach(row => {
+    const img = new Image();
+    img.src = row;
+  });
+}
