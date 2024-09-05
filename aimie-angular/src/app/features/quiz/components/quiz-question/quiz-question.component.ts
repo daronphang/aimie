@@ -46,6 +46,9 @@ export class QuizQuestionComponent {
   }
 
   protected onNextQuestion(): void {
-    this.response.emit();
+    this.openDialog = false;
+    setTimeout(() => {
+      this.response.emit();
+    }, 1);
   }
 }
