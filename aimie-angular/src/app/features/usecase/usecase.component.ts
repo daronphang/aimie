@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { events } from './usecases';
 import { chevronRightIcon } from '@progress/kendo-svg-icons';
+import { preloadImages } from '@core/utils/formatters';
 
 @Component({
   selector: 'app-usecase',
@@ -9,12 +10,17 @@ import { chevronRightIcon } from '@progress/kendo-svg-icons';
   styleUrl: './usecase.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class UsecaseComponent implements AfterViewInit {
+export class UsecaseComponent implements OnInit, AfterViewInit {
   protected events = events;
   protected slideConfig = { slidesToShow: 1, slidesToScroll: 1, dots: true, infinite: true };
   protected chevronRightIcon = chevronRightIcon;
 
   constructor(protected route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const images: string[] = [];
+    preloadImages(images);
+  }
 
   ngAfterViewInit(): void {
     this.changeContentOfTimelineFlags();

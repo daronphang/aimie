@@ -125,7 +125,11 @@ export class QuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const images: string[] = ['/assets/images/quiz-machine.png', '/assets/images/quiz-mona.png'];
+    const images: string[] = [
+      '/assets/images/quiz-machine.png',
+      '/assets/images/quiz-mona.png',
+      '/assets/images/rainbox-banner.png',
+    ];
     preloadImages(images);
   }
 
