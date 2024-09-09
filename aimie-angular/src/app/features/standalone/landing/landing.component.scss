@@ -9,30 +9,47 @@
 
 .new-banner {
   color: variables.$primary;
-  text-align: center;
-  background: rgba(199, 218, 248, 0.25);
+  text-align: left;
+  // background: rgba(199, 218, 248, 0.25);
   // background: rgba(196, 199, 203, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  width: 100vw;
 
   @media (max-width: variables.$device-mobile-l) {
-    height: 10rem;
-    padding: utilities.$spacer * utilities.$size-5;
+    height: 9rem;
+    padding-top: utilities.$spacer * utilities.$size-5;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    padding: utilities.$spacer * utilities.$size-5;
+    padding-top: utilities.$spacer * utilities.$size-5;
     height: 12rem;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    padding: utilities.$spacer * utilities.$size-5;
+    padding-top: utilities.$spacer * utilities.$size-5;
     height: 13rem;
+    position: absolute;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
     height: 14rem;
-    padding: utilities.$spacer * utilities.$size-5;
+    position: absolute;
+    padding-top: utilities.$spacer * utilities.$size-5;
+  }
+}
+
+.banner-text {
+  @media (max-width: variables.$device-mobile-l) {
+    width: 12rem;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    width: 14rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
   }
 }
 
@@ -77,16 +94,16 @@
   align-items: center;
 
   @media (max-width: variables.$device-mobile-l) {
-    height: calc(100svh - 10rem);
+    height: calc(100svh - 9rem);
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
     height: calc(100svh - 12rem);
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    min-height: calc(100svh - 13rem);
+    min-height: calc(100svh);
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    min-height: calc(100svh - 14rem);
+    min-height: calc(100svh);
   }
 }
 
@@ -104,7 +121,6 @@
     gap: utilities.$spacer * utilities.$size-4;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: 32rem;
     gap: utilities.$spacer * utilities.$size-4;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
@@ -112,31 +128,27 @@
   }
 }
 
-.chatbot {
-  position: absolute;
-  background-image: url('/assets/images/chatbot.png');
-  transform: rotate(-13deg);
+.aimie {
+  background-image: url('/assets/images/AIMie.png');
+  transform: rotate(0deg);
+  z-index: 1;
 
   @media (max-width: variables.$device-mobile-l) {
-    right: 1rem;
-    background-size: 5rem 5rem;
-    width: 5rem;
-    height: 5rem;
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    right: 1rem;
     background-size: 6rem 6rem;
     width: 6rem;
     height: 6rem;
   }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    background-size: 7rem 7rem;
+    width: 7rem;
+    height: 7rem;
+  }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    right: 1rem;
     background-size: 7rem 7rem;
     width: 7rem;
     height: 7rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    right: 1rem;
     background-size: 7rem 7rem;
     width: 7rem;
     height: 7rem;

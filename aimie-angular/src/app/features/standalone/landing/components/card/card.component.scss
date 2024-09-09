@@ -20,8 +20,8 @@
     height: 14rem;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: 14rem;
-    height: 20rem;
+    width: 13rem;
+    height: 18rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
     width: 14rem;
@@ -79,19 +79,19 @@
 
 .text {
   @media (max-width: variables.$device-mobile-l) {
-    margin-top: utilities.$spacer * utilities.$size-3;
-    font-size: variables.$font-2xs;
-  }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    margin-top: utilities.$spacer * utilities.$size-3;
+    margin-top: utilities.$spacer * utilities.$size-1;
     font-size: variables.$font-xs;
   }
-  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    margin-top: utilities.$spacer * utilities.$size-5;
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    margin-top: utilities.$spacer * utilities.$size-2;
     font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    margin-top: utilities.$spacer * utilities.$size-3;
+    font-size: variables.$font-reg;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
     margin-top: utilities.$spacer * utilities.$size-5;
-    font-size: variables.$font-reg;
+    font-size: variables.$font-lg;
   }
 }

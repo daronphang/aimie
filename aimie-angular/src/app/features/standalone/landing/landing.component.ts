@@ -11,7 +11,7 @@ export class LandingComponent {
   public buttons: LandingCard[] = [
     {
       title: 'Chat',
-      subtitle: 'Start a conversation with AIMie',
+      subtitle: 'Ask AIMie any questions you have',
       content: "Let's start a new conversation!",
       imageUrl: '/assets/images/chat2.png',
       class: 'card--chat',

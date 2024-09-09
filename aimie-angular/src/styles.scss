@@ -2,6 +2,7 @@
 @use 'core/styles/base';
 @use 'core/styles/variables';
 @use 'core/styles/chat';
+@use 'assets/fonts/futura/futura.scss';
 @use 'assets/fonts/poppins/poppins.scss';
 @use 'assets/fonts/urbane/urbane.scss';
 @use 'bootstrap/scss/bootstrap-utilities';
@@ -18,28 +19,28 @@
 @import 'bootstrap/scss/bootstrap';
 
 body {
-  font-family: 'Poppins', Helvetica, Arial, sans-serif;
+  font-family: 'Futura', Helvetica, Arial, sans-serif;
   font-size: 16px;
   margin: 0px;
 
   @media (max-width: variables.$device-mobile-l) {
     h1 {
-      font-size: 24px;
+      font-size: 26px;
     }
     h2 {
-      font-size: 20px;
+      font-size: 22px;
     }
     h3 {
-      font-size: 18px;
+      font-size: 20px;
     }
     h4 {
-      font-size: 16px;
+      font-size: 18px;
     }
     h5 {
-      font-size: 14px;
+      font-size: 16px;
     }
     h6 {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
