@@ -18,7 +18,15 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
   constructor(protected route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const images: string[] = [];
+    const images: string[] = [
+      '/assets/images/uc-demand-forecasting.png',
+      '/assets/images/uc-sc-planning.png',
+      '/assets/images/uc-procurement.png',
+      '/assets/images/uc-capacity-planning.png',
+      '/assets/images/uc-copilot.png',
+      '/assets/images/uc-ppm.png',
+      '/assets/images/uc-logistics.png',
+    ];
     preloadImages(images);
   }
 
@@ -48,9 +56,9 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
 
   protected extractCategoryFromDescription(v: string, cat: string): string {
     const temp = v.split(';');
-    if (cat === 'scenario') {
+    if (cat === 'mainUser') {
       return temp[0].trim();
-    } else if (cat === 'technology') {
+    } else if (cat === 'problem') {
       return temp[1].trim();
     }
     return temp[2].trim();
@@ -58,10 +66,12 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
 
   protected getZone(v: string): string {
     if (v === 'AI/ML-based Demand Forecasting') return 'SC';
+    else if (v === 'Integrated Supply Chain Planning') return 'SC';
+    else if (v === 'AI-enabled Procurement') return 'HQ';
     else if (v === 'AI-enabled Production Capacity Planning') return 'HQ';
-    else if (v === 'Process Optimisation (Set Point)') return 'SHOPFLOOR';
-    else if (v === 'Predictive & Prescriptive Maintenance') return 'SHOPFLOOR';
-    else if (v === 'GenAI Maintenance Chatbot') return 'SHOPFLOOR';
+    else if (v === 'Industrial Copilot') return 'SHOPFLOOR';
+    else if (v === 'Predictive and Prescriptive Maintenance') return 'SHOPFLOOR';
+    else if (v === 'Gen-AI Logistics for Customer Service') return 'SC';
     return 'UNKNOWN';
   }
 
@@ -70,14 +80,18 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
     elements.forEach(row => {
       if (row.innerHTML.includes('AI/ML-based Demand Forecasting')) {
         row.classList.add('zone--sc');
+      } else if (row.innerHTML.includes('Integrated Supply Chain Planning')) {
+        row.classList.add('zone--sc');
+      } else if (row.innerHTML.includes('AI-enabled Procurement')) {
+        row.classList.add('zone--hq');
       } else if (row.innerHTML.includes('AI-enabled Production Capacity Planning')) {
         row.classList.add('zone--hq');
-      } else if (row.innerHTML.includes('Process Optimisation (Set Point)')) {
+      } else if (row.innerHTML.includes('Industrial Copilot')) {
         row.classList.add('zone--shopfloor');
       } else if (row.innerHTML.includes('Prescriptive Maintenance')) {
         row.classList.add('zone--shopfloor');
-      } else if (row.innerHTML.includes('GenAI Maintenance Chatbot')) {
-        row.classList.add('zone--shopfloor');
+      } else if (row.innerHTML.includes('Gen-AI Logistics for Customer Service')) {
+        row.classList.add('zone--sc');
       }
     });
   }

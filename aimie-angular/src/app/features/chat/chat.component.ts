@@ -46,7 +46,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     setTimeout(() => {
       this.local.next({
         author: this.bot,
-        text: "Do you have any questions regarding the AI Experience Centre's event? Ask me and I can help you with it!",
+        text: 'Do you have any questions regarding the AI Experience Nexus event? Ask me and I can help you with it!',
       });
     }, 1000);
 

@@ -72,13 +72,13 @@
 .k-chat .k-message-group:not(.k-alt) .k-chat-bubble::before {
   position: absolute;
   content: '';
-  background-image: url('/assets/images/chatbot.png');
-  background-size: 2rem 2rem;
+  background-image: url('/assets/images/AIMie.png');
+  background-size: 2.3rem 2.3rem;
   display: inline-block;
-  width: 2rem;
-  height: 2rem;
+  width: 2.3rem;
+  height: 2.3rem;
   top: 0;
-  left: -2.2rem;
+  left: -2.5rem;
 }
 
 .k-message-box {

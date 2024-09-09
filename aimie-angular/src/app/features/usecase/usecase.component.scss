@@ -43,7 +43,7 @@
   z-index: 100;
   padding-top: utilities.$spacer * utilities.$size-3;
   padding-bottom: utilities.$spacer * utilities.$size-4;
-  // background-color: variables.$bg-1;
+  background-color: #f9fafb;
 
   @media (max-width: variables.$device-mobile-l) {
     font-size: variables.$font-2xs;
@@ -235,10 +235,6 @@
 //   border-radius: 0rem;
 // }
 
-// .k-card-header {
-//   padding: unset;
-// }
-
 .k-card-callout {
   border: inherit;
 }
@@ -304,5 +300,9 @@
 
 .usecase__img {
   width: 100%;
-  object-fit: contain;
+  height: auto;
+}
+
+.background {
+  background-color: #f7f8fb;
 }

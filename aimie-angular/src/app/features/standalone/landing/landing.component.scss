@@ -4,6 +4,36 @@
 .landing-container {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.new-banner {
+  color: variables.$primary;
+  text-align: center;
+  background: rgba(199, 218, 248, 0.25);
+  // background: rgba(196, 199, 203, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: variables.$device-mobile-l) {
+    height: 7rem;
+    padding: utilities.$spacer * utilities.$size-4;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    padding: utilities.$spacer * utilities.$size-5;
+    height: 8rem;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    padding: utilities.$spacer * utilities.$size-5;
+    height: 8rem;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    height: 9rem;
+    padding: utilities.$spacer * utilities.$size-5;
+  }
 }
 
 .banner {
@@ -47,16 +77,16 @@
   align-items: center;
 
   @media (max-width: variables.$device-mobile-l) {
-    height: calc(100svh - 9rem);
+    height: calc(100svh - 7rem);
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    height: calc(100svh - 11rem);
+    height: calc(100svh - 8rem);
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    min-height: calc(100svh - 12rem);
+    min-height: calc(100svh - 8rem);
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    min-height: calc(100svh - 12rem);
+    min-height: calc(100svh - 9rem);
   }
 }
 
