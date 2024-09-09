@@ -85,7 +85,7 @@
 .content {
   @media (max-width: variables.$device-mobile-l) {
     margin-top: utilities.$spacer * utilities.$size-5;
-    font-size: variables.$font-sm;
+    font-size: variables.$font-reg;
     margin-right: 10%;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {

@@ -33,12 +33,12 @@
 
 .k-chat .k-message-list-content {
   @media (max-width: variables.$device-mobile-l) {
-    font-size: variables.$font-xs;
+    font-size: variables.$font-sm;
     padding-left: calc(utilities.$spacer * utilities.$size-3 + 2rem);
     padding-right: calc(utilities.$spacer * utilities.$size-3 + 2rem);
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    font-size: variables.$font-sm;
+    font-size: variables.$font-reg;
     padding-left: calc(utilities.$spacer * utilities.$size-3 + 2rem);
     padding-right: calc(utilities.$spacer * utilities.$size-3 + 2rem);
   }
