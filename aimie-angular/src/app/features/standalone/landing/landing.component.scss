@@ -19,19 +19,19 @@
   justify-content: center;
 
   @media (max-width: variables.$device-mobile-l) {
-    height: 7rem;
-    padding: utilities.$spacer * utilities.$size-4;
+    height: 10rem;
+    padding: utilities.$spacer * utilities.$size-5;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
     padding: utilities.$spacer * utilities.$size-5;
-    height: 8rem;
+    height: 12rem;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     padding: utilities.$spacer * utilities.$size-5;
-    height: 8rem;
+    height: 13rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    height: 9rem;
+    height: 14rem;
     padding: utilities.$spacer * utilities.$size-5;
   }
 }
@@ -77,16 +77,16 @@
   align-items: center;
 
   @media (max-width: variables.$device-mobile-l) {
-    height: calc(100svh - 7rem);
+    height: calc(100svh - 10rem);
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    height: calc(100svh - 8rem);
+    height: calc(100svh - 12rem);
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    min-height: calc(100svh - 8rem);
+    min-height: calc(100svh - 13rem);
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    min-height: calc(100svh - 9rem);
+    min-height: calc(100svh - 14rem);
   }
 }
 
