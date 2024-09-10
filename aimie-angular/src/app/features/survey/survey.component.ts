@@ -6,7 +6,7 @@ import { paperPlaneIcon } from '@progress/kendo-svg-icons';
 import { delay, exhaustMap, from, merge, Observable, of, scan, Subject, Subscription, switchMap } from 'rxjs';
 import { SurveyService } from './survey.service';
 import { SurveyResponse } from './survey.interface';
-import { surveyQuestions, defaultResponses, bot } from './questions';
+import { surveyQuestions, bot } from './questions';
 import { getViewportDevice } from '@core/utils/formatters';
 
 @Component({
@@ -30,6 +30,7 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
   private curIndex = 0;
   private endSurvey$ = new Subject<boolean>();
   private sub$: Subscription;
+  private curValue: string[] = [];
 
   constructor(
     protected route: ActivatedRoute,
@@ -51,19 +52,19 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
       .pipe(
         delay(1000),
         switchMap(() => {
-          this.local$.next(defaultResponses.START);
-          return of(null);
-        }),
-        delay(1000),
-        switchMap(() => {
-          this.setTypingMessage();
-          return of(null);
-        }),
-        delay(1000),
-        switchMap(() => {
           this.local$.next(surveyQuestions[this.curIndex]);
           return of(null);
         })
+        // delay(1000),
+        // switchMap(() => {
+        //   this.setTypingMessage();
+        //   return of(null);
+        // }),
+        // delay(1000),
+        // switchMap(() => {
+        //   this.local$.next(surveyQuestions[this.curIndex]);
+        //   return of(null);
+        // })
       )
       .subscribe();
 
@@ -153,19 +154,29 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   protected onAction(e: ExecuteActionEvent): void {
-    const v = e.action.value;
+    let v: string = e.action.value;
+    const questionId = surveyQuestions[this.curIndex].questionId;
+
     // Custom logic for handling the next outcome of survey workflow.
-    if ((this.curIndex === 0 || this.curIndex === 9) && v.toUpperCase() === 'NO') {
+    if (questionId === 'Q1' && v.toUpperCase() === 'NO, I WOULD JUST LIKE TO CONNECT') {
       this.updateResponse(v);
       this.sendMessage(v);
       // Redirect to connect.
-      this.curIndex = 11;
+      const newIdx = surveyQuestions.findIndex(row => row.questionId === 'Q13');
+      this.curIndex = newIdx;
+      this.onNextQuestion();
+    } else if (questionId === 'Q10' && v.toUpperCase() === 'NO') {
+      this.updateResponse(v);
+      this.sendMessage(v);
+      // Redirect to connect.
+      const newIdx = surveyQuestions.findIndex(row => row.questionId === 'Q12');
+      this.curIndex = newIdx;
       this.onNextQuestion();
     } else if (v.toUpperCase() === 'OTHERS (PLEASE SPECIFY)') {
       // Allow users to type in custom response.
       this.sendMessage(v);
       this.isInputDisabled = false;
-    } else if (this.curIndex === 12 && v.toUpperCase() === 'NO') {
+    } else if (questionId === 'Q13' && v.toUpperCase() === 'NO') {
       this.updateResponse(v);
       this.sendMessage(v);
       this.curIndex = surveyQuestions.length - 1;
@@ -173,11 +184,53 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
     } else if (v.toUpperCase() === 'RETRY') {
       this.setTypingMessage();
       this.endSurvey$.next(true);
+    } else if (questionId === 'Q5' || questionId === 'Q9') {
+      // Allow multiple choices.
+      if (this.curValue.includes(v)) {
+        // Remove choice.
+        const idx = this.curValue.findIndex(row => row === v);
+        this.curValue.splice(idx, 1);
+        this.setActionButtonInactive(v);
+      } else {
+        this.setActionButtonActive(v);
+        this.curValue.push(v);
+      }
+      if (this.curValue.length == 3) {
+        v = this.curValue.join(', ');
+        this.curValue = [];
+        this.updateResponse(v);
+        this.sendMessage(v);
+        this.onNextQuestion();
+      }
     } else {
       // Default.
       this.updateResponse(v);
       this.sendMessage(v);
       this.onNextQuestion();
+    }
+  }
+
+  private setActionButtonActive(v: string): void {
+    const actions = document.querySelectorAll('.k-quick-reply');
+    for (let i = 0; i < actions.length; i++) {
+      const el = actions[i];
+      if (el.innerHTML.includes(v)) {
+        el.classList.add('action-focus');
+        el.classList.remove('action-unfocus');
+        return;
+      }
+    }
+  }
+
+  private setActionButtonInactive(v: string): void {
+    const actions = document.querySelectorAll('.k-quick-reply');
+    for (let i = 0; i < actions.length; i++) {
+      const el = actions[i];
+      if (el.innerHTML.includes(v)) {
+        el.classList.remove('action-focus');
+        el.classList.add('action-unfocus');
+        return;
+      }
     }
   }
 
@@ -242,7 +295,7 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
         el.style.height = `calc(${window.visualViewport.height}px - 6.5rem)`;
         break;
       case 'tablet':
-        el.style.height = `calc(${window.visualViewport.height}px - 8.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 9.2rem)`;
         break;
       case 'laptop':
         el.style.height = `calc(${window.visualViewport.height}px - 10rem)`;

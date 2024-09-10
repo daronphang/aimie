@@ -8,7 +8,11 @@ export const bot: User = {
 export const defaultResponses: DefaultResponses = {
   START: {
     author: bot,
-    text: 'Thank you for taking part in our survey! Your feedback is valuable to us!',
+    text: "Before reaching out to us, would you be willing to take a quick survey? We're looking to better understand your challenges with AI, and your feedback will be shared with our AI-COE team to help improve our services.",
+    suggestedActions: [
+      { title: 'Yes', value: 'Yes', type: 'customOption' },
+      { title: 'No, I would just like to connect', value: 'No', type: 'customOption' },
+    ],
   },
   CONTACT: {
     author: bot,
@@ -17,7 +21,7 @@ export const defaultResponses: DefaultResponses = {
   },
   END: {
     author: bot,
-    text: 'Your response has been saved. Thank you for taking part in this survey!',
+    text: 'Thank you for your time!',
     suggestedActions: [],
   },
   FAILED: {
@@ -31,10 +35,10 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q1',
     author: bot,
-    text: 'Would you be comfortable with sharing your responses and data with the AI COE team?',
+    text: "Before reaching out to us, would you be willing to take a quick survey? We're looking to better understand your challenges with AI, and your feedback will be shared with our AI-COE team to help improve our services.",
     suggestedActions: [
-      { title: 'Yes', value: 'Yes', type: 'customOption' },
-      { title: 'No', value: 'No', type: 'customOption' },
+      { title: 'Yes, I am interested', value: 'Yes, I am interested', type: 'customOption' },
+      { title: 'No, I would just like to connect', value: 'No, I would just like to connect', type: 'customOption' },
     ],
   },
   { questionId: 'Q2', author: bot, text: 'Which organisation are you from?' },
@@ -48,22 +52,22 @@ export const surveyQuestions: CustomMessage[] = [
       { title: 'Others (please specify)', value: 'Others (please specify)', type: 'customOption' },
     ],
   },
-  {
-    questionId: 'Q4',
-    author: bot,
-    text: 'How would you rate your understanding of how AI can be applied in your organisation?',
-    suggestedActions: [
-      { title: 'New to AI', value: 'New to AI', type: 'customOption' },
-      { title: 'Exploring', value: 'Exploring', type: 'customOption' },
-      { title: 'Piloting', value: 'Piloting', type: 'customOption' },
-      { title: 'Have Use Cases', value: 'Have Use Cases', type: 'customOption' },
-      { title: 'Deployed AI on a regular basis', value: 'Deployed AI on a regular basis', type: 'customOption' },
-    ],
-  },
+  // {
+  //   questionId: 'Q4',
+  //   author: bot,
+  //   text: 'How would you rate your understanding of how AI can be applied in your organisation?',
+  //   suggestedActions: [
+  //     { title: 'New to AI', value: 'New to AI', type: 'customOption' },
+  //     { title: 'Exploring', value: 'Exploring', type: 'customOption' },
+  //     { title: 'Piloting', value: 'Piloting', type: 'customOption' },
+  //     { title: 'Have Use Cases', value: 'Have Use Cases', type: 'customOption' },
+  //     { title: 'Deployed AI on a regular basis', value: 'Deployed AI on a regular basis', type: 'customOption' },
+  //   ],
+  // },
   {
     questionId: 'Q5',
     author: bot,
-    text: 'What is your biggest concern regarding adopting AI solutions in your organisation?',
+    text: 'What are your biggest concerns regarding adopting AI solutions in your organisation? Choose top 3.',
     suggestedActions: [
       { title: 'High Implementation Costs', value: 'High Implementation Costs', type: 'customOption' },
       { title: 'Lack of Skilled Workforce', value: 'Lack of Skilled Workforce', type: 'customOption' },
@@ -83,35 +87,23 @@ export const surveyQuestions: CustomMessage[] = [
         value: 'Integration with Existing Systems',
         type: 'customOption',
       },
-      { title: 'Lack of Data/Sensor-isation', value: 'Lack of Data/Sensor-isation', type: 'customOption' },
+      { title: 'Lack of Data/Sensor-isation', value: 'Lack of Data/Sensorisation', type: 'customOption' },
       { title: 'Others (please specify)', value: 'Others (please specify)', type: 'customOption' },
     ],
   },
   {
     questionId: 'Q6',
     author: bot,
-    text: 'Has your company explored or implemented any AI solutions so far?',
+    text: 'Are there any plans for your company to explore or implement any AI solutions within the next few months?',
     suggestedActions: [
-      { title: 'Yes, we have', value: 'Yes, we have', type: 'customOption' },
+      { title: 'Not interested', value: 'Not interested', type: 'customOption' },
       {
-        title: 'Yes, we are currently exploring',
-        value: 'Yes, we are currently exploring',
+        title: 'Considering',
+        value: 'Considering',
         type: 'customOption',
       },
-      { title: 'No, but we are considering', value: 'No, but we are considering', type: 'customOption' },
-      { title: 'No, we have not yet considered', value: 'No, we have not yet considered', type: 'customOption' },
-    ],
-  },
-  {
-    questionId: 'Q7',
-    author: bot,
-    text: 'How willing is your company to invest/invest more in AI technologies within the next few months?',
-    suggestedActions: [
-      { title: 'Very willing', value: 'Very willing', type: 'customOption' },
-      { title: 'Somewhat willing', value: 'Somewhat willing', type: 'customOption' },
-      { title: 'Neutral', value: 'Neutral', type: 'customOption' },
-      { title: 'Somewhat unwilling', value: 'Somewhat unwilling', type: 'customOption' },
-      { title: 'Very unwilling', value: 'Very unwilling', type: 'customOption' },
+      { title: 'Looking into solutions', value: 'Looking into solutions', type: 'customOption' },
+      { title: 'Already implemented', value: 'Already implemented', type: 'customOption' },
     ],
   },
   {
@@ -146,7 +138,7 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q9',
     author: bot,
-    text: 'Which of the following 5 pain points is most relevant to you?',
+    text: 'Which of the following pain points are most relevant to you? Choose top 3.',
     suggestedActions: [
       {
         title: 'Product/Component/Process design',
@@ -162,7 +154,7 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q10',
     author: bot,
-    text: 'Did you manage to take part in the AI Experience Centre Tour?',
+    text: 'Did you manage to take part in the AI Experience Nexus Tour?',
     suggestedActions: [
       { title: 'Yes', value: 'Yes', type: 'customOption' },
       { title: 'No', value: 'No', type: 'customOption' },
@@ -171,7 +163,7 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q11',
     author: bot,
-    text: 'Which of the AI solutions that were showcased during the AI Experience is most relevant to your needs?',
+    text: 'Which of the AI solutions that were showcased during the AI Experience Nexus is most relevant to your needs?',
     suggestedActions: [
       {
         title: 'Spend Categorisation through NLP',

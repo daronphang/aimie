@@ -1,7 +1,7 @@
 <div class="position-relative">
   <div class="survey-container" (window:resize)="onResize()">
     <app-navbar [route]="route"></app-navbar>
-    <h2 class="title">Survey</h2>
+    <h2 class="title">Connect</h2>
   </div>
   <kendo-chat [messages]="(feed$ | async)!" [user]="user" messageBoxType="textarea" (executeAction)="onAction($event)">
     <ng-template kendoChatMessageBoxTemplate>

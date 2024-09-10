@@ -28,3 +28,16 @@
   display: flex;
   flex-direction: column;
 }
+
+.action-focus {
+  border-color: #ff6358 !important;
+  background-color: #ff6358 !important;
+  color: variables.$light !important;
+}
+
+.action-unfocus {
+  box-shadow: unset !important;
+  border-color: unset !important;
+  background: transparent linear-gradient(180deg, #8e9ae634 0%, #72ecdb43 100%) 0% 0% no-repeat padding-box !important;
+  color: variables.$primary !important;
+}
