@@ -88,7 +88,7 @@ export const surveyQuestions: CustomMessage[] = [
         type: 'customOption',
       },
       { title: 'Lack of Data/Sensor-isation', value: 'Lack of Data/Sensorisation', type: 'customOption' },
-      { title: 'Others (please specify)', value: 'Others (please specify)', type: 'customOption' },
+      // { title: 'Others (please specify)', value: 'Others (please specify)', type: 'customOption' },
     ],
   },
   {
