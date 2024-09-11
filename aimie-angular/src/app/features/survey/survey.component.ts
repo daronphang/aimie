@@ -255,7 +255,6 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
 
     // End of the survey, save response.
     if (this.curIndex >= surveyQuestions.length) {
-      console.log(this.response);
       this.setTypingMessage();
       this.endSurvey$.next(true);
       return;
@@ -292,16 +291,16 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
 
     switch (device) {
       case 'mobile':
-        el.style.height = `calc(${window.visualViewport.height}px - 6.5rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 5.85rem)`;
         break;
       case 'tablet':
-        el.style.height = `calc(${window.visualViewport.height}px - 9.2rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 7.65rem)`;
         break;
       case 'laptop':
-        el.style.height = `calc(${window.visualViewport.height}px - 10rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 8.35rem)`;
         break;
       case 'desktop':
-        el.style.height = `calc(${window.visualViewport.height}px - 13rem)`;
+        el.style.height = `calc(${window.visualViewport.height}px - 9.8rem)`;
         break;
     }
   }

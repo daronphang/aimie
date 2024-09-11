@@ -71,12 +71,12 @@
 
 .legend__zone--hq {
   @include legend__zone;
-  background-color: #61c44e;
+  background-color: #0247c6;
 }
 
 .legend__zone--shopfloor {
   @include legend__zone;
-  background-color: #286a9f;
+  background-color: #d3554c;
 }
 
 .zone__banner {
@@ -92,12 +92,12 @@
 
 .zone--hq {
   // background-color: #61c44e;
-  border: 2px solid #61c44e !important;
+  border: 2px solid #0247c6 !important;
 }
 
 .zone--shopfloor {
   // background-color: #286a9f;
-  border: 2px solid #286a9f !important;
+  border: 2px solid #d3554c !important;
 }
 
 .subtitle {
@@ -231,6 +231,23 @@
   }
 }
 
+.k-card-subtitle {
+  font-size: variables.$font-sm;
+
+  @media (max-width: variables.$device-mobile-l) {
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    font-size: variables.$font-reg;
+  }
+}
+
 // .k-card > .k-card-inner {
 //   border-radius: 0rem;
 // }
@@ -265,6 +282,26 @@
     font-size: variables.$font-reg;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    font-size: variables.$font-lg;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    font-size: variables.$font-lg;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    font-size: variables.$font-lg;
+  }
+}
+
+.k-timeline .k-timeline-circle {
+  background-color: variables.$light;
+  border: 2px solid #707070;
+}
+
+.body__wrapper {
+  @media (max-width: variables.$device-mobile-l) {
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
     font-size: variables.$font-reg;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
@@ -274,15 +311,6 @@
     font-size: variables.$font-reg;
   }
 }
-
-.k-timeline .k-timeline-circle {
-  background-color: variables.$light;
-  border: 2px solid #707070;
-}
-
-// .body__wrapper {
-//   text-align: center;
-// }
 
 .body__title {
   font-weight: 600;

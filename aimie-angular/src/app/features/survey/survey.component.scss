@@ -7,15 +7,19 @@
 
   @media (max-width: variables.$device-mobile-l) {
     padding: utilities.$spacer * utilities.$size-3;
+    padding-bottom: unset;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
     padding: utilities.$spacer * utilities.$size-4;
+    padding-bottom: unset;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     padding: utilities.$spacer * utilities.$size-4;
+    padding-bottom: unset;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
     padding: utilities.$spacer * utilities.$size-5;
+    padding-bottom: unset;
   }
 }
 

@@ -35,7 +35,7 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q1',
     author: bot,
-    text: "Before reaching out to us, would you be willing to take a quick survey? We're looking to better understand your challenges with AI, and your feedback will be shared with our AI-COE team to help improve our services.",
+    text: "Before reaching out to us, would you be willing to take a quick survey? \n\n We're looking to better understand your challenges with AI, and your feedback will be shared with our AI-COE team to help improve our services.",
     suggestedActions: [
       { title: 'Yes, I am interested', value: 'Yes, I am interested', type: 'customOption' },
       { title: 'No, I would just like to connect', value: 'No, I would just like to connect', type: 'customOption' },

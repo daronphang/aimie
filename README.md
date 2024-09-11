@@ -34,7 +34,7 @@ $ sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 2. Create self-signed certificate
 
 ```sh
-$ sudo certbot certonly --webroot --webroot-path /etc/pki/tls/certs  -d aimie.com
+$ sudo certbot certonly --webroot --webroot-path /etc/pki/tls/certs  -d aimfg.sg
 ```
 
 ### Docker

@@ -2,7 +2,7 @@ import { TimelineEvent } from '@progress/kendo-angular-layout';
 
 export const events: TimelineEvent[] = [
   {
-    title: 'AI/ML-based Demand Forecasting',
+    title: 'AI-enabled Demand Forecasting',
     subtitle: 'AI/ML algorithms deployed for accurate and dynamic LNG demand forecasting',
     description:
       'Supply Chain Planner ; Manual or traditional statistical methods result in inaccurate demand predictions ; Increased forecast accuracy resulting in more optimal inventory levels preventing stockouts/inventory surplus',
@@ -27,6 +27,14 @@ export const events: TimelineEvent[] = [
   },
   {
     title: 'AI-enabled Production Capacity Planning',
+    subtitle: 'Supports optimal resource allocation to fulfill forecasted demand',
+    description:
+      'Production Planner, Operator ; Varying business focus (e.g., target fulfilment rate, cost cutting, maximize profit) result in difficulty for planner to optimize resource allocation ; Actively optimize production planning based on change in demand and allocate the right capacity for each equipment',
+    date: new Date('2013-10-05T14:48:00.000Z'),
+    images: [{ alt: 'image', src: '/assets/images/uc-capacity-planning.png' }],
+  },
+  {
+    title: 'AI-Driven Rapid Production Capacity Optimisation',
     subtitle: 'Supports optimal resource allocation to fulfill forecasted demand',
     description:
       'Production Planner, Operator ; Varying business focus (e.g., target fulfilment rate, cost cutting, maximize profit) result in difficulty for planner to optimize resource allocation ; Actively optimize production planning based on change in demand and allocate the right capacity for each equipment',

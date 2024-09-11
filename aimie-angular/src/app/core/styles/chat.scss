@@ -59,6 +59,10 @@
   margin-bottom: 0.5rem;
 }
 
+.k-chat-bubble {
+  white-space: pre-line !important;
+}
+
 .k-chat .k-message-group:not(.k-alt) .k-chat-bubble {
   @include chat-message;
   background: transparent linear-gradient(180deg, #8e9ae634 0%, #72ecdb43 100%) 0% 0% no-repeat padding-box;
@@ -89,6 +93,18 @@
 
 .k-input-inner {
   background-color: #ebebeb;
+  @media (max-width: variables.$device-mobile-l) {
+    font-size: variables.$font-sm;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
+    font-size: variables.$font-reg;
+  }
+  @media (min-width: calc(variables.$device-laptop + 1px)) {
+    font-size: variables.$font-reg;
+  }
 }
 
 .k-chat .k-quick-reply {

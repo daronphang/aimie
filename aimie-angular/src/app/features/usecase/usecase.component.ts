@@ -65,7 +65,7 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
   }
 
   protected getZone(v: string): string {
-    if (v === 'AI/ML-based Demand Forecasting') return 'SC';
+    if (v === 'AI-enabled Demand Forecasting') return 'SC';
     else if (v === 'Integrated Supply Chain Planning') return 'SC';
     else if (v === 'AI-enabled Procurement') return 'HQ';
     else if (v === 'AI-enabled Production Capacity Planning') return 'HQ';
@@ -78,7 +78,7 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
   private changeBorderOfCards(): void {
     const elements = document.querySelectorAll('.k-card');
     elements.forEach(row => {
-      if (row.innerHTML.includes('AI/ML-based Demand Forecasting')) {
+      if (row.innerHTML.includes('AI-enabled Demand Forecasting')) {
         row.classList.add('zone--sc');
       } else if (row.innerHTML.includes('Integrated Supply Chain Planning')) {
         row.classList.add('zone--sc');
