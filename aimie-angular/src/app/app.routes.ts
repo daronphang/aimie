@@ -12,19 +12,19 @@ export const routes: Routes = [
 
   // lazy loading.
   {
-    path: urlJoin(RoutePath.HOME, RoutePath.CHAT).substring(1),
+    path: urlJoin(RoutePath.CHAT).substring(1),
     loadChildren: () => import('@chat/chat.module').then(m => m.ChatModule),
   },
   {
-    path: urlJoin(RoutePath.HOME, RoutePath.QUIZ).substring(1),
+    path: urlJoin(RoutePath.QUIZ).substring(1),
     loadChildren: () => import('@quiz/quiz.module').then(m => m.QuizModule),
   },
   {
-    path: urlJoin(RoutePath.HOME, RoutePath.USECASE).substring(1),
+    path: urlJoin(RoutePath.USECASE).substring(1),
     loadChildren: () => import('@usecase/usecase.module').then(m => m.UsecaseModule),
   },
   {
-    path: urlJoin(RoutePath.HOME, RoutePath.SURVEY).substring(1),
+    path: urlJoin(RoutePath.SURVEY).substring(1),
     loadChildren: () => import('@survey/survey.module').then(m => m.SurveyModule),
   },
 
