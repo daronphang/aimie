@@ -1,6 +1,6 @@
 export const RoutePath = Object.freeze({
-  FALLBACK: 'aimie',
-  HOME: 'aimie',
+  FALLBACK: '',
+  HOME: '',
   CHAT: 'chat',
   SURVEY: 'survey',
   QUIZ: 'quiz',
