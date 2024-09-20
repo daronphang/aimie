@@ -22,19 +22,19 @@
 
   @media (max-width: variables.$device-mobile-l) {
     height: 9rem;
-    padding-top: utilities.$spacer * utilities.$size-5;
+    padding-top: utilities.$spacer * utilities.$size-3;
   }
   @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    padding-top: utilities.$spacer * utilities.$size-5;
-    height: 12rem;
+    padding-top: utilities.$spacer * utilities.$size-3;
+    height: 11rem;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     padding-top: utilities.$spacer * utilities.$size-5;
-    height: 13rem;
+    height: 12rem;
     position: absolute;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    height: 14rem;
+    height: 12rem;
     position: absolute;
     padding-top: utilities.$spacer * utilities.$size-5;
   }
@@ -112,7 +112,6 @@
   flex-wrap: wrap;
 
   @media (max-width: variables.$device-mobile-l) {
-    width: 100%;
     margin-left: utilities.$spacer * utilities.$size-3;
     gap: utilities.$spacer * utilities.$size-3;
   }
@@ -134,23 +133,23 @@
   z-index: 1;
 
   @media (max-width: variables.$device-mobile-l) {
+    background-size: 5.5rem 5.5rem;
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
     background-size: 6rem 6rem;
     width: 6rem;
     height: 6rem;
   }
-  @media (min-width: calc(variables.$device-mobile-l + 1px)) and (max-width: variables.$device-tablet) {
-    background-size: 7rem 7rem;
-    width: 7rem;
-    height: 7rem;
-  }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    background-size: 7rem 7rem;
-    width: 7rem;
-    height: 7rem;
+    background-size: 6rem 6rem;
+    width: 6rem;
+    height: 6rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    background-size: 7rem 7rem;
-    width: 7rem;
-    height: 7rem;
+    background-size: 6rem 6rem;
+    width: 6rem;
+    height: 6rem;
   }
 }

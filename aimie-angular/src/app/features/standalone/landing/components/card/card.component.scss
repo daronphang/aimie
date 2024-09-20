@@ -20,12 +20,12 @@
     height: 14rem;
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
-    width: 13rem;
-    height: 18rem;
+    width: 10rem;
+    height: 16rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    width: 14rem;
-    height: 25rem;
+    width: 12rem;
+    height: 20rem;
   }
 }
 
@@ -66,14 +66,14 @@
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     margin-top: utilities.$spacer * utilities.$size-4;
     padding: utilities.$spacer * utilities.$size-1;
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
     margin-top: utilities.$spacer * utilities.$size-4;
     padding: utilities.$spacer * utilities.$size-2;
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
   }
 }
 
@@ -88,10 +88,10 @@
   }
   @media (min-width: calc(variables.$device-tablet + 1px)) and (max-width: variables.$device-laptop) {
     margin-top: utilities.$spacer * utilities.$size-3;
-    font-size: variables.$font-reg;
+    font-size: variables.$font-sm;
   }
   @media (min-width: calc(variables.$device-laptop + 1px)) {
-    margin-top: utilities.$spacer * utilities.$size-5;
-    font-size: variables.$font-lg;
+    margin-top: utilities.$spacer * utilities.$size-4;
+    font-size: variables.$font-reg;
   }
 }

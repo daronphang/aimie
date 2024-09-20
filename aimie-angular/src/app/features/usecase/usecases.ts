@@ -60,6 +60,15 @@ export const events: TimelineEvent[] = [
     images: [{ alt: 'image', src: '/assets/images/uc-ppm.png' }],
   },
   {
+    title: 'Futures of work in Supply Chain: Generative AI Logistics Agent',
+    subtitle:
+      'A smart agent with a model that tries to understand how to best answer a question, identifies the right data source, and provide most relevant answer',
+    description:
+      'Project Manager ; Logistics team often spend big part of their time on manual task leading to 15% reduction in business growth with no proactive alerts on delayed shipments ; Increases logistics team productivity by up to 25% and enable them to focus on more strategic tasks',
+    date: new Date('2016-10-05T14:48:00.000Z'),
+    images: [{ alt: 'image', src: '/assets/images/aws.png' }],
+  },
+  {
     title: 'Gen-AI Logistics for Customer Service',
     subtitle:
       'AI logistics chatbot assistant with advanced features to handle order-specific requests and enquiries from customers',

@@ -33,7 +33,15 @@ $ sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 2. Create self-signed certificate
 
 ```sh
-$ sudo certbot certonly --webroot --webroot-path /etc/pki/tls/certs  -d aimfg.sg
+$ sudo certbot certonly --standalone -d aimfg.sg
+```
+
+3. Copy certificate and private key to Docker containers
+
+```yaml
+volumes:
+  - /etc/letsencrypt/live/aimfg.sg/fullchain.pem:/etc/pki/tls/certs/certificate.crt:ro
+  - /etc/letsencrypt/live/aimfg.sg/privkey.pem:/etc/pki/tls/private/private.key:ro
 ```
 
 ### Docker

@@ -155,9 +155,14 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
 
   protected onAction(e: ExecuteActionEvent): void {
     let v: string = e.action.value;
-    const questionId = surveyQuestions[this.curIndex].questionId;
+    if (v.toUpperCase() === 'RETRY') {
+      this.setTypingMessage();
+      this.endSurvey$.next(true);
+      return;
+    }
 
     // Custom logic for handling the next outcome of survey workflow.
+    const questionId = surveyQuestions[this.curIndex].questionId;
     if (questionId === 'Q1' && v.toUpperCase() === 'NO, I WOULD JUST LIKE TO CONNECT') {
       this.updateResponse(v);
       this.sendMessage(v);
@@ -181,9 +186,6 @@ export class SurveyComponent implements OnInit, OnDestroy, AfterViewInit {
       this.sendMessage(v);
       this.curIndex = surveyQuestions.length - 1;
       this.onNextQuestion();
-    } else if (v.toUpperCase() === 'RETRY') {
-      this.setTypingMessage();
-      this.endSurvey$.next(true);
     } else if (questionId === 'Q5' || questionId === 'Q9') {
       // Allow multiple choices.
       if (this.curValue.includes(v)) {

@@ -6,6 +6,7 @@ import { paperPlaneIcon } from '@progress/kendo-svg-icons';
 import { concatMap, from, merge, Observable, scan, Subject, Subscription } from 'rxjs';
 import { ChatService } from './chat.service';
 import { getViewportDevice } from '@core/utils/formatters';
+import * as showdown from 'showdown';
 
 @Component({
   selector: 'app-chat',
@@ -46,7 +47,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     setTimeout(() => {
       this.local.next({
         author: this.bot,
-        text: 'Do you have any questions regarding the AI Experience Nexus event? Ask me and I can help you with it!',
+        text: 'Do you have any questions regarding AIMfg and AI Experience Nexus? Ask me and I can help you with it!',
       });
     }, 1000);
 
@@ -162,5 +163,10 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
         el.style.height = `calc(${window.visualViewport.height}px - 11.3rem)`;
         break;
     }
+  }
+
+  public renderMarkdown(md: string): string {
+    const converter = new showdown.Converter();
+    return converter.makeHtml(md);
   }
 }

@@ -8,7 +8,7 @@ export const bot: User = {
 export const defaultResponses: DefaultResponses = {
   START: {
     author: bot,
-    text: "Before reaching out to us, would you be willing to take a quick survey? We're looking to better understand your challenges with AI, and your feedback will be shared with our AI-COE team to help improve our services.",
+    text: "Before reaching out to us, would you be willing to take a quick survey? We're looking to better understand your challenges with AI, and your feedback will be shared with our AIMfg team to help improve our services.",
     suggestedActions: [
       { title: 'Yes', value: 'Yes', type: 'customOption' },
       { title: 'No, I would just like to connect', value: 'No', type: 'customOption' },
@@ -35,7 +35,7 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q1',
     author: bot,
-    text: "Before reaching out to us, would you be willing to take a quick survey? \n\n We're looking to better understand your challenges with AI, and your feedback will be shared with our AI-COE team to help improve our services.",
+    text: "Before reaching out to us, would you be willing to take a quick survey? \n\n We're looking to better understand your challenges with AI, and your feedback will be shared with our AIMfg team to help improve our services.",
     suggestedActions: [
       { title: 'Yes, I am interested', value: 'Yes, I am interested', type: 'customOption' },
       { title: 'No, I would just like to connect', value: 'No, I would just like to connect', type: 'customOption' },
@@ -151,97 +151,97 @@ export const surveyQuestions: CustomMessage[] = [
       { title: 'Predictive maintenance', value: 'Predictive maintenance', type: 'customOption' },
     ],
   },
-  {
-    questionId: 'Q10',
-    author: bot,
-    text: 'Did you manage to take part in the AI Experience Nexus Tour?',
-    suggestedActions: [
-      { title: 'Yes', value: 'Yes', type: 'customOption' },
-      { title: 'No', value: 'No', type: 'customOption' },
-    ],
-  },
-  {
-    questionId: 'Q11',
-    author: bot,
-    text: 'Which of the AI solutions that were showcased during the AI Experience Nexus is most relevant to your needs?',
-    suggestedActions: [
-      {
-        title: 'Spend Categorisation through NLP',
-        value: 'Spend Categorisation through NLP',
-        type: 'customOption',
-      },
-      { title: 'AI Cleansheet', value: 'AI Cleansheet', type: 'customOption' },
-      {
-        title: 'Procurement Negotiation Scripting',
-        value: 'Procurement Negotiation Scripting',
-        type: 'customOption',
-      },
-      {
-        title: 'AI-enabled Production Capacity Planning',
-        value: 'AI-enabled Production Capacity Planning',
-        type: 'customOption',
-      },
-      { title: 'GenAI Maintenance Chatbot', value: 'GenAI Maintenance Chatbot', type: 'customOption' },
-      {
-        title: 'Predictive and Prescriptive Maintenance',
-        value: 'Predictive and Prescriptive Maintenance',
-        type: 'customOption',
-      },
-      { title: 'AI/ML-based Demand Forecasting', value: 'AI/ML-based Demand Forecasting', type: 'customOption' },
-      {
-        title: 'AA-based Supply Chain Planning and S&OP',
-        value: 'AA-based Supply Chain Planning and S&OP',
-        type: 'customOption',
-      },
-      { title: 'Set Point Optimisation', value: 'Set Point Optimisation', type: 'customOption' },
-      {
-        title: 'Gen-AI Logistics for Customer Service',
-        value: 'Gen-AI Logistics for Customer Service',
-        type: 'customOption',
-      },
-    ],
-  },
-  {
-    questionId: 'Q12',
-    author: bot,
-    text: 'Which of the following AI solutions would you like to start adopting in the next 12 months?',
-    suggestedActions: [
-      {
-        title: 'Spend Categorisation through NLP',
-        value: 'Spend Categorisation through NLP',
-        type: 'customOption',
-      },
-      { title: 'AI Cleansheet', value: 'AI Cleansheet', type: 'customOption' },
-      {
-        title: 'Procurement Negotiation Scripting',
-        value: 'Procurement Negotiation Scripting',
-        type: 'customOption',
-      },
-      {
-        title: 'AI-enabled Production Capacity Planning',
-        value: 'AI-enabled Production Capacity Planning',
-        type: 'customOption',
-      },
-      { title: 'GenAI Maintenance Chatbot', value: 'GenAI Maintenance Chatbot', type: 'customOption' },
-      {
-        title: 'Predictive and Prescriptive Maintenance',
-        value: 'Predictive and Prescriptive Maintenance',
-        type: 'customOption',
-      },
-      { title: 'AI/ML-based Demand Forecasting', value: 'AI/ML-based Demand Forecasting', type: 'customOption' },
-      {
-        title: 'AA-based Supply Chain Planning and S&OP',
-        value: 'AA-based Supply Chain Planning and S&OP',
-        type: 'customOption',
-      },
-      { title: 'Set Point Optimisation', value: 'Set Point Optimisation', type: 'customOption' },
-      {
-        title: 'Gen-AI Logistics for Customer Service',
-        value: 'Gen-AI Logistics for Customer Service',
-        type: 'customOption',
-      },
-    ],
-  },
+  // {
+  //   questionId: 'Q10',
+  //   author: bot,
+  //   text: 'Did you manage to take part in the AI Experience Nexus Tour?',
+  //   suggestedActions: [
+  //     { title: 'Yes', value: 'Yes', type: 'customOption' },
+  //     { title: 'No', value: 'No', type: 'customOption' },
+  //   ],
+  // },
+  // {
+  //   questionId: 'Q11',
+  //   author: bot,
+  //   text: 'Which of the AI solutions that were showcased during the AI Experience Nexus is most relevant to your needs?',
+  //   suggestedActions: [
+  //     {
+  //       title: 'Spend Categorisation through NLP',
+  //       value: 'Spend Categorisation through NLP',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'AI Cleansheet', value: 'AI Cleansheet', type: 'customOption' },
+  //     {
+  //       title: 'Procurement Negotiation Scripting',
+  //       value: 'Procurement Negotiation Scripting',
+  //       type: 'customOption',
+  //     },
+  //     {
+  //       title: 'AI-enabled Production Capacity Planning',
+  //       value: 'AI-enabled Production Capacity Planning',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'GenAI Maintenance Chatbot', value: 'GenAI Maintenance Chatbot', type: 'customOption' },
+  //     {
+  //       title: 'Predictive and Prescriptive Maintenance',
+  //       value: 'Predictive and Prescriptive Maintenance',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'AI/ML-based Demand Forecasting', value: 'AI/ML-based Demand Forecasting', type: 'customOption' },
+  //     {
+  //       title: 'AA-based Supply Chain Planning and S&OP',
+  //       value: 'AA-based Supply Chain Planning and S&OP',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'Set Point Optimisation', value: 'Set Point Optimisation', type: 'customOption' },
+  //     {
+  //       title: 'Gen-AI Logistics for Customer Service',
+  //       value: 'Gen-AI Logistics for Customer Service',
+  //       type: 'customOption',
+  //     },
+  //   ],
+  // },
+  // {
+  //   questionId: 'Q12',
+  //   author: bot,
+  //   text: 'Which of the following AI solutions would you like to start adopting in the next 12 months?',
+  //   suggestedActions: [
+  //     {
+  //       title: 'Spend Categorisation through NLP',
+  //       value: 'Spend Categorisation through NLP',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'AI Cleansheet', value: 'AI Cleansheet', type: 'customOption' },
+  //     {
+  //       title: 'Procurement Negotiation Scripting',
+  //       value: 'Procurement Negotiation Scripting',
+  //       type: 'customOption',
+  //     },
+  //     {
+  //       title: 'AI-enabled Production Capacity Planning',
+  //       value: 'AI-enabled Production Capacity Planning',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'GenAI Maintenance Chatbot', value: 'GenAI Maintenance Chatbot', type: 'customOption' },
+  //     {
+  //       title: 'Predictive and Prescriptive Maintenance',
+  //       value: 'Predictive and Prescriptive Maintenance',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'AI/ML-based Demand Forecasting', value: 'AI/ML-based Demand Forecasting', type: 'customOption' },
+  //     {
+  //       title: 'AA-based Supply Chain Planning and S&OP',
+  //       value: 'AA-based Supply Chain Planning and S&OP',
+  //       type: 'customOption',
+  //     },
+  //     { title: 'Set Point Optimisation', value: 'Set Point Optimisation', type: 'customOption' },
+  //     {
+  //       title: 'Gen-AI Logistics for Customer Service',
+  //       value: 'Gen-AI Logistics for Customer Service',
+  //       type: 'customOption',
+  //     },
+  //   ],
+  // },
   {
     questionId: 'Q13',
     author: bot,

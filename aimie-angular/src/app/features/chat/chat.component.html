@@ -1,6 +1,6 @@
 <div class="chat-container" (window:resize)="onResize()">
   <app-navbar [route]="route"></app-navbar>
-  <h2 class="title">New Chat</h2>
+  <h2 class="title">Chat</h2>
   <div class="text-center subtitle">Powered by DataRobot</div>
 </div>
 <kendo-chat [messages]="(feed | async)!" [user]="user" messageBoxType="textarea">
@@ -16,5 +16,8 @@
         <kendo-svgicon [icon]="paperPlaneIcon" size="large"></kendo-svgicon>
       </button>
     </div>
+  </ng-template>
+  <ng-template kendoChatMessageTemplate let-message>
+    <div [innerHTML]="renderMarkdown(message.text)"></div>
   </ng-template>
 </kendo-chat>

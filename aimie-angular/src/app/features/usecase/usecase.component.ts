@@ -26,6 +26,7 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
       '/assets/images/uc-copilot.png',
       '/assets/images/uc-ppm.png',
       '/assets/images/uc-logistics.png',
+      '/assets/images/aws.png',
     ];
     preloadImages(images);
   }
@@ -64,16 +65,16 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
     return temp[2].trim();
   }
 
-  protected getZone(v: string): string {
-    if (v === 'AI-enabled Demand Forecasting') return 'SC';
-    else if (v === 'Integrated Supply Chain Planning') return 'SC';
-    else if (v === 'AI-enabled Procurement') return 'HQ';
-    else if (v === 'AI-enabled Production Capacity Planning') return 'HQ';
-    else if (v === 'Industrial Copilot') return 'SHOPFLOOR';
-    else if (v === 'Predictive and Prescriptive Maintenance') return 'SHOPFLOOR';
-    else if (v === 'Gen-AI Logistics for Customer Service') return 'SC';
-    return 'UNKNOWN';
-  }
+  // protected getZone(v: string): string {
+  //   if (v === 'AI-enabled Demand Forecasting') return 'SC';
+  //   else if (v === 'Integrated Supply Chain Planning') return 'SC';
+  //   else if (v === 'AI-enabled Procurement') return 'HQ';
+  //   else if (v === 'AI-enabled Production Capacity Planning') return 'HQ';
+  //   else if (v === 'Industrial Copilot') return 'SHOPFLOOR';
+  //   else if (v === 'Predictive and Prescriptive Maintenance') return 'SHOPFLOOR';
+  //   else if (v === 'Gen-AI Logistics for Customer Service') return 'SC';
+  //   return 'UNKNOWN';
+  // }
 
   private changeBorderOfCards(): void {
     const elements = document.querySelectorAll('.k-card');
@@ -86,11 +87,15 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
         row.classList.add('zone--hq');
       } else if (row.innerHTML.includes('AI-enabled Production Capacity Planning')) {
         row.classList.add('zone--hq');
+      } else if (row.innerHTML.includes('Capacity Optimisation')) {
+        row.classList.add('zone--hq');
       } else if (row.innerHTML.includes('Industrial Copilot')) {
         row.classList.add('zone--shopfloor');
       } else if (row.innerHTML.includes('Prescriptive Maintenance')) {
         row.classList.add('zone--shopfloor');
       } else if (row.innerHTML.includes('Gen-AI Logistics for Customer Service')) {
+        row.classList.add('zone--sc');
+      } else if (row.innerHTML.includes('Generative AI Logistics Agent')) {
         row.classList.add('zone--sc');
       }
     });
