@@ -11,9 +11,17 @@
         placeholder="Ask me anything..."
         resizable="none"
         [rows]="3"
+        [disabled]="isListening"
+        (valueChange)="onValueChange($event)"
         (keydown)="onKeyDown($event)"></kendo-textarea>
-      <button kendoButton fillMode="flat" (click)="sendMessage()">
+      <button *ngIf="!isMicrophone" kendoButton fillMode="flat" (click)="sendMessage()">
         <kendo-svgicon [icon]="paperPlaneIcon" size="large"></kendo-svgicon>
+      </button>
+      <button *ngIf="isMicrophone" kendoButton fillMode="flat" (click)="onListen()">
+        <fa-icon
+          [icon]="microphoneIcon"
+          size="lg"
+          [ngClass]="isListening ? 'microphone--active' : 'microphone--inactive'"></fa-icon>
       </button>
     </div>
   </ng-template>

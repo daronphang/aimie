@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulati
 import { ActivatedRoute } from '@angular/router';
 import { Message, User } from '@progress/kendo-angular-conversational-ui';
 import { TextAreaComponent } from '@progress/kendo-angular-inputs';
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import { paperPlaneIcon } from '@progress/kendo-svg-icons';
 import { concatMap, from, merge, Observable, scan, Subject, Subscription } from 'rxjs';
 import { ChatService } from './chat.service';
@@ -18,7 +19,9 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('messageBoxInput', { static: false })
   public messageBoxInput: TextAreaComponent;
   public paperPlaneIcon = paperPlaneIcon;
+  public microphoneIcon = faMicrophone;
   public feed: Observable<Message[]>;
+  public isMicrophone = true;
   public readonly bot: User = {
     id: 0,
   };
@@ -36,6 +39,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   private local: Subject<Message> = new Subject<Message>();
   private msgQueue$ = new Subject<string>();
   private sub$: Subscription;
+  private recognition: SpeechRecognition;
+  protected isListening: boolean = false;
 
   constructor(
     protected route: ActivatedRoute,
@@ -69,6 +74,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
           });
         },
       });
+
+    this.speechToText();
   }
 
   ngAfterViewInit(): void {
@@ -79,9 +86,9 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     this.sub$.unsubscribe();
   }
 
-  public sendMessage(): void {
+  public sendMessage(text?: string): void {
     const messageBox = this.messageBoxInput;
-    const newMessage = messageBox.value;
+    const newMessage = messageBox.value || text;
 
     if (!newMessage) {
       return;
@@ -103,6 +110,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     messageBox.value = '';
     messageBox.focus();
     this.scrollToBottom();
+    this.isMicrophone = true;
   }
 
   private scrollToBottom(): void {
@@ -168,5 +176,37 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public renderMarkdown(md: string): string {
     const converter = new showdown.Converter();
     return converter.makeHtml(md);
+  }
+
+  private speechToText() {
+    const rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    rec.lang = 'en-US';
+    rec.maxAlternatives = 1;
+    this.recognition = rec;
+
+    this.recognition.onresult = (event: SpeechRecognitionEvent) => {
+      const transcript = event.results[0][0].transcript;
+      if (transcript.length > 0) {
+        this.sendMessage(transcript);
+      }
+    };
+  }
+
+  protected onListen(): void {
+    if (this.isListening) {
+      this.isListening = false;
+      this.recognition.stop();
+    } else {
+      this.isListening = true;
+      this.recognition.start();
+    }
+  }
+
+  protected onValueChange(event: string): void {
+    if (event.length > 0) {
+      this.isMicrophone = false;
+    } else {
+      this.isMicrophone = true;
+    }
   }
 }

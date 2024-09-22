@@ -31,3 +31,11 @@
   background-color: variables.$bg-1;
   border-radius: 0.3rem;
 }
+
+.microphone--inactive {
+  color: variables.$primary;
+}
+
+.microphone--active {
+  color: variables.$secondary;
+}
