@@ -206,7 +206,8 @@
 
 .k-timeline-vertical::after {
   border: unset;
-  background: transparent linear-gradient(to bottom, #0b6a9f 0%, #e48fc7 100%) 0% 0% no-repeat padding-box;
+  background: #8c8e8c;
+  // background: transparent linear-gradient(to bottom, #0b6a9f 0%, #e48fc7 100%) 0% 0% no-repeat padding-box;
 }
 
 .k-timeline-vertical .k-timeline-card {

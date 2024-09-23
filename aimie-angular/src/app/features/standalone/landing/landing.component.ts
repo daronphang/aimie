@@ -26,9 +26,9 @@ export class LandingComponent {
       navigateUrl: RoutePath.QUIZ,
     },
     {
-      title: 'Usecases',
-      subtitle: 'Learn more about the usecases from AI XP Centre',
-      content: 'Learn more about the usecases from AI XP Centre',
+      title: 'Nexus',
+      subtitle: 'Learn more about the usecases from AI XP Nexus',
+      content: 'Learn more about the usecases from AI XP Nexus',
       imageUrl: '/assets/images/usecase2.png',
       class: 'card--usecase',
       navigateUrl: RoutePath.USECASE,

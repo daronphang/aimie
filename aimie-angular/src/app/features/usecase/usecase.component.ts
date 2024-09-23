@@ -93,9 +93,9 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
         row.classList.add('zone--shopfloor');
       } else if (row.innerHTML.includes('Prescriptive Maintenance')) {
         row.classList.add('zone--shopfloor');
-      } else if (row.innerHTML.includes('Gen-AI Logistics for Customer Service')) {
+      } else if (row.innerHTML.includes('Gen-AI Agent for Inbound Logistics')) {
         row.classList.add('zone--sc');
-      } else if (row.innerHTML.includes('Generative AI Logistics Agent')) {
+      } else if (row.innerHTML.includes('Gen-AI Logistics for Customer Service')) {
         row.classList.add('zone--sc');
       }
     });
