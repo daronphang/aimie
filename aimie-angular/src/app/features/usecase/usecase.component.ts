@@ -23,10 +23,10 @@ export class UsecaseComponent implements OnInit, AfterViewInit {
       '/assets/images/uc-sc-planning.png',
       '/assets/images/uc-procurement.png',
       '/assets/images/uc-capacity-planning.png',
-      '/assets/images/uc-copilot.png',
+      '/assets/images/uc-copilot.jpg',
       '/assets/images/uc-ppm.png',
       '/assets/images/uc-logistics.png',
-      '/assets/images/aws.png',
+      '/assets/images/uc-inbound.png',
     ];
     preloadImages(images);
   }

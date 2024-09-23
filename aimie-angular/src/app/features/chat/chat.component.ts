@@ -1,4 +1,12 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Message, User } from '@progress/kendo-angular-conversational-ui';
 import { TextAreaComponent } from '@progress/kendo-angular-inputs';
@@ -44,7 +52,8 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     protected route: ActivatedRoute,
-    private chat: ChatService
+    private chat: ChatService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -72,6 +81,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
             author: this.bot,
             text: res,
           });
+          this.cdr.detectChanges();
         },
       });
 
@@ -88,7 +98,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public sendMessage(text?: string): void {
     const messageBox = this.messageBoxInput;
-    const newMessage = messageBox.value || text;
+    const newMessage = text || messageBox.value;
 
     if (!newMessage) {
       return;
@@ -107,8 +117,10 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
       typing: true,
     });
 
-    messageBox.value = '';
-    messageBox.focus();
+    if (!this.isMicrophone) {
+      messageBox.value = '';
+      messageBox.focus();
+    }
     this.scrollToBottom();
     this.isMicrophone = true;
   }
@@ -182,23 +194,29 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     const rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     rec.lang = 'en-US';
     rec.maxAlternatives = 1;
-    this.recognition = rec;
+    rec.continuous = false;
+    rec.interimResults = false;
 
-    this.recognition.onresult = (event: SpeechRecognitionEvent) => {
+    rec.onresult = (event: SpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
+      this.isListening = false;
+      this.recognition.stop();
       if (transcript.length > 0) {
         this.sendMessage(transcript);
       }
+      this.cdr.detectChanges();
     };
+
+    this.recognition = rec;
   }
 
   protected onListen(): void {
-    if (this.isListening) {
-      this.isListening = false;
-      this.recognition.stop();
-    } else {
+    if (!this.isListening) {
       this.isListening = true;
       this.recognition.start();
+    } else {
+      this.isListening = false;
+      this.recognition.stop();
     }
   }
 

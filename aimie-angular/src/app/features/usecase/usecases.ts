@@ -24,7 +24,7 @@ export const events: TimelineEvent[] = [
     description:
       'Logistics Specialist, Project Manager ; Logistics team spends up to 50% of their time on reporting and information sharing, waiting on this impacts decision making with other groups ; Get up-to-date information to make faster decisions, reducing air freight and potential production downtime',
     date: new Date('2011-10-05T14:48:00.000Z'),
-    images: [{ alt: 'image', src: '/assets/images/uc-inbound.png' }],
+    images: [{ alt: 'image', src: '/assets/images/aws.png' }],
   },
   {
     title: 'AI-enabled Procurement',
