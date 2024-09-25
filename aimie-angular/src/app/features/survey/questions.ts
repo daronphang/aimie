@@ -21,7 +21,7 @@ export const defaultResponses: DefaultResponses = {
   },
   END: {
     author: bot,
-    text: 'Thank you for your time!',
+    text: 'Thank you for your time and the respective AIMfg team will reach out to you soon!',
     suggestedActions: [],
   },
   FAILED: {

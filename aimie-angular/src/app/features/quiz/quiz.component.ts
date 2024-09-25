@@ -96,7 +96,7 @@ export class QuizComponent implements OnInit {
         { isCorrect: false, value: 'Human' },
       ],
       funFact:
-        'The above quote was a paraphrase written by AI that reflects Andrew Ng ideas in the context of AI’s potential impact on manufacturing!',
+        "The above quote was a paraphrase written by AI that reflects Andrew Ng's (Founder of deeplearning.ai) ideas in the context of AI’s potential impact on manufacturing!",
     },
     {
       index: 1,

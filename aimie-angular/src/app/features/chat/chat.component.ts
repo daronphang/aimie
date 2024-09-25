@@ -29,7 +29,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public paperPlaneIcon = paperPlaneIcon;
   public microphoneIcon = faMicrophone;
   public feed: Observable<Message[]>;
-  public isMicrophone = true;
+  public isMicrophone = false;
   public readonly bot: User = {
     id: 0,
   };
@@ -57,6 +57,15 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParamMap.subscribe(res => {
+      const micEnabled = res.get('micEnabled');
+      if (micEnabled) {
+        this.isMicrophone = true;
+      } else {
+        this.isMicrophone = false;
+      }
+    });
+
     this.feed = merge(from(this.introduction), this.local).pipe(scan((acc: Message[], x: Message) => [...acc, x], []));
     setTimeout(() => {
       this.local.next({
