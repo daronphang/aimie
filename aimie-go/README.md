@@ -8,7 +8,7 @@
 [
   {
     "questionId": "Q1",
-    "question": "Would you be comfortable with sharing your responses and data with the AI COE team?"
+    "question": "Before reaching out to us, would you be willing to take a quick survey?"
   },
   {
     "questionId": "Q2",
@@ -20,19 +20,19 @@
   },
   {
     "questionId": "Q4",
-    "question": "How would you rate your understanding of how AI can be applied in your organisation?"
+    "question": "N/A"
   },
   {
     "questionId": "Q5",
-    "question": "What is your biggest concern regarding adopting AI solutions in your organisation?"
+    "question": "What is your biggest concern regarding adopting AI solutions in your organisation? Choose top 3."
   },
   {
     "questionId": "Q6",
-    "question": "Has your company explored or implemented any AI solutions so far?"
+    "question": "Are there any plans for your company to explore or implement any AI solutions within the next few months?"
   },
   {
     "questionId": "Q7",
-    "question": "How willing is your company to invest/invest more in AI technologies within the next few months?"
+    "question": "N/A"
   },
   {
     "questionId": "Q8",
@@ -40,23 +40,31 @@
   },
   {
     "questionId": "Q9",
-    "question": "Which of the following 5 pain points is most relevant to you?"
+    "question": "Which of the following pain points are most relevant to you? Choose top 3."
   },
   {
     "questionId": "Q10",
-    "question": "Did you manage to take part in the AI Experience Centre Tour?"
+    "question": "N/A"
   },
   {
     "questionId": "Q11",
-    "question": "Which of the AI solutions that were showcased during the AI Experience is most relevant to your needs?"
+    "question": "N/A"
   },
   {
     "questionId": "Q12",
-    "question": "Which of the following AI solutions would you like to start adopting in the next 12 months?"
+    "question": "N/A"
   },
   {
     "questionId": "Q13",
     "question": "Would you like to connect with us?"
+  },
+  {
+    "questionId": "Q14",
+    "question": "What is your name?"
+  },
+  {
+    "questionId": "Q15",
+    "question": "What is your email?"
   }
 ]
 ```

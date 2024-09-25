@@ -12,7 +12,7 @@ type SurveyEntry struct {
 	Response	string	`json:"response"` 
 }
 
-type SurveyResult struct {
+type SurveyUserResponse struct {
 	ID 			string			`json:"id"`
-	Entries 	[]SurveyEntry  	`json:"entries"`
+	Responses 	[]SurveyEntry  	`json:"responses"`
 }

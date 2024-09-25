@@ -14,5 +14,5 @@ type Repository interface {
 	AddSurveyQuestions(ctx context.Context, arg []SurveyQuestion) error
 	UpdateSurveyQuestion(ctx context.Context, arg SurveyQuestion) error 
 	AddSurveyResponse(ctx context.Context, arg []SurveyEntry) error 
-	GetSurveyResponses(ctx context.Context, arg string) ([]SurveyEntry, error)
+	GetSurveyResponses(ctx context.Context) ([]SurveyEntry, error)
 }

@@ -60,11 +60,11 @@ $ docker run -d \
 --name postgres \
 -p 5432:5432 \
 --network aimie \
---mount type=bind,source=./docker/postgres/data,target=/var/lib/postgresql/data:rw \
+--mount type=bind,source=$PWD/docker/postgres/data,target=/var/lib/postgresql/data \
 -e POSTGRES_PASSWORD=password \
 -v $PWD/aimie/postgresql.conf:/etc/postgresql/postgresql.conf \
--c config_file=/etc/postgresql/postgresql.conf \
-postgres:16.4
+postgres:16.4 \
+-c 'config_file=/etc/postgresql/postgresql.conf'
 ```
 
 3. Run docker-compose

@@ -10,12 +10,11 @@ import (
 )
 
 func (h *RestHandler) HandleGetSurveyResponses(c echo.Context) error {
-	err := h.usecase.GetSurveyResponses(c.Request().Context())
+	rv, err := h.usecase.GetSurveyResponses(c.Request().Context())
 	if err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
-
-	return c.String(http.StatusOK, "success")
+	return c.JSON(http.StatusOK, rv)
 }
 
 func (h *RestHandler) HandleSaveSurveyResponse(c echo.Context) error {

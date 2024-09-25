@@ -86,14 +86,15 @@ func (q *Querier) AddSurveyResponse(ctx context.Context, arg []domain.SurveyEntr
 	return nil
 }
 
-func (q *Querier) GetSurveyResponses(ctx context.Context, arg string) ([]domain.SurveyEntry, error) {
+func (q *Querier) GetSurveyResponses(ctx context.Context) ([]domain.SurveyEntry, error) {
 	stmt := `
 	SELECT SR.id, SR.question_id, SQ.question, SR.response
 	FROM survey_response AS SR
 	LEFT JOIN survey_question AS SQ ON SQ.question_id = SR.question_id
+	ORDER BY SR.id, SR.question_id ASC
 	`
 
-	rows, err := q.db.Query(ctx, stmt, arg)
+	rows, err := q.db.Query(ctx, stmt)
 	if err != nil {
 		return nil, err
 	}
