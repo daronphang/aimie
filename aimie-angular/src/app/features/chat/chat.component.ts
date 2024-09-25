@@ -29,6 +29,7 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   public paperPlaneIcon = paperPlaneIcon;
   public microphoneIcon = faMicrophone;
   public feed: Observable<Message[]>;
+  public microphoneEnabled = false;
   public isMicrophone = false;
   public readonly bot: User = {
     id: 0,
@@ -60,8 +61,10 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
     this.route.queryParamMap.subscribe(res => {
       const micEnabled = res.get('micEnabled');
       if (micEnabled) {
+        this.microphoneEnabled = true;
         this.isMicrophone = true;
       } else {
+        this.microphoneEnabled = false;
         this.isMicrophone = false;
       }
     });
@@ -131,7 +134,10 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
       messageBox.focus();
     }
     this.scrollToBottom();
-    this.isMicrophone = true;
+
+    if (this.microphoneEnabled) {
+      this.isMicrophone = true;
+    }
   }
 
   private scrollToBottom(): void {
@@ -230,6 +236,11 @@ export class ChatComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   protected onValueChange(event: string): void {
+    if (!this.microphoneEnabled) {
+      this.isMicrophone = false;
+      return;
+    }
+
     if (event.length > 0) {
       this.isMicrophone = false;
     } else {
