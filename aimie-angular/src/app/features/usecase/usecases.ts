@@ -3,7 +3,7 @@ import { TimelineEvent } from '@progress/kendo-angular-layout';
 export const events: TimelineEvent[] = [
   {
     title: 'AI-enabled Demand Forecasting',
-    subtitle: 'AI/ML algorithms deployed for accurate and dynamic LNG demand forecasting',
+    subtitle: 'AI/ML algorithms deployed for accurate and dynamic Liquefied Natural Gas (LNG) demand forecasting',
     description:
       'Supply Chain Manager ; Manual or traditional statistical methods result in inaccurate demand predictions ; Increased forecast accuracy resulting in more optimal inventory levels preventing stockouts/inventory surplus',
     date: new Date('2011-10-05T14:48:00.000Z'),
@@ -11,9 +11,9 @@ export const events: TimelineEvent[] = [
   },
   {
     title: 'Integrated Supply Chain Planning',
-    subtitle: 'Advanced analytics tools deployed for precise demand forecasting of LNG',
+    subtitle: 'Advanced analytics tools deployed for precise demand forecasting of Liquefied Natural Gas (LNG)',
     description:
-      'Supply Chain Manager ; Inaccurate demand forecasts leading to overproduction or stockouts of LNG ; Shorten duration to investigate and compare optimal supply chain resolutions based on limiting constraint and business focus',
+      'Supply Chain Manager ; Inaccurate demand forecasts leading to overproduction or stockouts of Liquefied Natural Gas (LNG) ; Shorten duration to investigate and compare optimal supply chain resolutions based on limiting constraint and business focus',
     date: new Date('2011-10-05T14:48:00.000Z'),
     images: [{ alt: 'image', src: '/assets/images/uc-sc-planning.png' }],
   },
@@ -63,7 +63,7 @@ export const events: TimelineEvent[] = [
   {
     title: 'Industrial Copilot',
     subtitle:
-      'Interactive GenAI chatbot provide onsite troubleshooting assistance with database of all equipment operation manual',
+      'Interactive Gen-AI chatbot provide onsite troubleshooting assistance with database of all equipment operation manual',
     description:
       'Line Engineer ; Time-consuming checks of equipment manuals during equipment repairs and troubleshooting causes long equipment downtime ; Reduce technician workload from increased first-time fix rate, and minimise operational downtime from improved maintenance quality',
     date: new Date('2014-10-05T14:48:00.000Z'),

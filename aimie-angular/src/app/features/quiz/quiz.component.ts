@@ -90,7 +90,7 @@ export class QuizComponent implements OnInit {
       index: 0,
       question: 'Qn 1: Is this quote written by AIMie or a human journalist?',
       content:
-        'AI can enable humans to work smarter, faster, and safer. In manufacturing, AI can optimize production processes, reduce downtime, and improve product quality by predicting maintenance needs before machines break down.',
+        'AI can enable humans to work smarter, faster, and safer. In manufacturing, AI can optimise production processes, reduce downtime, and improve product quality by predicting maintenance needs before machines break down.',
       options: [
         { isCorrect: true, value: 'AIMie' },
         { isCorrect: false, value: 'Human' },

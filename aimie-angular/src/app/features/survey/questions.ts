@@ -21,7 +21,7 @@ export const defaultResponses: DefaultResponses = {
   },
   END: {
     author: bot,
-    text: 'Thank you for your time and the respective AIMfg team will reach out to you soon!',
+    text: 'Thank you for your participation!',
     suggestedActions: [],
   },
   FAILED: {
@@ -67,27 +67,27 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q5',
     author: bot,
-    text: 'What are your biggest concerns regarding adopting AI solutions in your organisation? Choose top 3.',
+    text: 'What are your top three concerns regarding adopting AI solutions in your organisation?',
     suggestedActions: [
-      { title: 'High Implementation Costs', value: 'High Implementation Costs', type: 'customOption' },
-      { title: 'Lack of Skilled Workforce', value: 'Lack of Skilled Workforce', type: 'customOption' },
+      { title: 'High implementation costs', value: 'High implementation costs', type: 'customOption' },
+      { title: 'Lack of skilled workforce', value: 'Lack of skilled workforce', type: 'customOption' },
       {
-        title: 'Data Privacy and Security Issues',
-        value: 'Data Privacy and Security Issues',
+        title: 'Data privacy and security issues',
+        value: 'Data privacy and security issues',
         type: 'customOption',
       },
-      { title: 'Ethical Concerns', value: 'Ethical Concerns', type: 'customOption' },
+      { title: 'Ethical concerns', value: 'Ethical concerns', type: 'customOption' },
       {
-        title: 'Resistance to Change Within an Organisation',
-        value: 'Resistance to Change Within an Organisation',
+        title: 'Resistance to change within an organisation',
+        value: 'Resistance to change within an organisation',
         type: 'customOption',
       },
       {
-        title: 'Integration with Existing Systems',
-        value: 'Integration with Existing Systems',
+        title: 'Integration with existing systems',
+        value: 'Integration with existing systems',
         type: 'customOption',
       },
-      { title: 'Lack of Data/Sensor-isation', value: 'Lack of Data/Sensorisation', type: 'customOption' },
+      { title: 'Lack of data/sensorisation', value: 'Lack of data/sensorisation', type: 'customOption' },
       // { title: 'Others (please specify)', value: 'Others (please specify)', type: 'customOption' },
     ],
   },
@@ -138,11 +138,11 @@ export const surveyQuestions: CustomMessage[] = [
   {
     questionId: 'Q9',
     author: bot,
-    text: 'Which of the following pain points are most relevant to you? Choose top 3.',
+    text: 'What are the top three areas that you are most interested in?',
     suggestedActions: [
       {
-        title: 'Product/Component/Process design',
-        value: 'Product/Component/Process design',
+        title: 'Product and component design',
+        value: 'Product and component design',
         type: 'customOption',
       },
       { title: 'Quality assurance', value: 'Quality assurance', type: 'customOption' },
