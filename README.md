@@ -56,7 +56,15 @@ $ docker create network aimie
 
 ```sh
 $ cd ~
-$ docker run -d --name postgres -p 5432:5432 --network aimie --mount type=bind,source=./docker/postgres/data,target=/var/lib/postgresql/data:rw -e POSTGRES_PASSWORD=password postgres:16.4
+$ docker run -d \
+--name postgres \
+-p 5432:5432 \
+--network aimie \
+--mount type=bind,source=./docker/postgres/data,target=/var/lib/postgresql/data:rw \
+-e POSTGRES_PASSWORD=password \
+-v $PWD/aimie/postgresql.conf:/etc/postgresql/postgresql.conf \
+-c config_file=/etc/postgresql/postgresql.conf \
+postgres:16.4
 ```
 
 3. Run docker-compose
