@@ -14,6 +14,6 @@ export class NavbarComponent {
   constructor(private router: Router) {}
 
   public goBack() {
-    this.router.navigate(['../'], { relativeTo: this.route });
+    this.router.navigate(['../'], { relativeTo: this.route, queryParamsHandling: 'merge' });
   }
 }

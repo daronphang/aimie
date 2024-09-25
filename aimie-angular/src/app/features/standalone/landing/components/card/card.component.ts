@@ -24,6 +24,6 @@ export class CardComponent {
   ) {}
 
   protected onNavigate(): void {
-    this.router.navigate([this.data.navigateUrl], { relativeTo: this.route });
+    this.router.navigate([this.data.navigateUrl], { relativeTo: this.route, queryParamsHandling: 'merge' });
   }
 }
